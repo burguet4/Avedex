@@ -1,67 +1,79 @@
-# Payarinos
+# Avedex
 
-Pokédex de los pájaros de Asturias. Es una web que se instala en el móvil como una app (PWA): apuntas los pájaros que ves y se van desbloqueando en tu colección, al estilo de la pokédex de Pokémon GO.
+Pokédex de los pájaros de Asturias. Es una web app (PWA) que se instala en el móvil como una app normal: cada vez que ves un pájaro lo apuntas y se desbloquea en tu colección, al estilo de la pokédex de Pokémon GO.
 
-## Qué hace
+## Características
 
-- **Pokédex**: cuadrícula con las 251 especies que se pueden ver en Asturias (residentes, estivales, invernantes, migrantes y aves marinas que pasan frente a la costa). Las que no has visto aparecen como sombra; al apuntar un avistamiento se muestran a color.
-- **Contador** de descubiertos, especies con macho y hembra vistos, avistamientos totales y especies vistas este año.
-- **Filtros**: descubiertos / por descubrir / falta un sexo, hábitat, cuándo se ve, grupo, buscador y orden.
-- **Ficha** de cada especie: imagen, nombre común y científico, descripción, sexos vistos y tus avistamientos con fecha, lugar, punto en el mapa, sexo y notas.
+- **251 especies** que se pueden ver en Asturias: residentes, estivales, invernantes, migrantes y aves marinas que pasan frente a la costa.
+- Las especies que todavía no has visto aparecen como una **sombra con su número**, y su ficha queda bloqueada hasta que las descubres.
+- **Descubrir una especie**: buscas el pájaro por su nombre, común o científico, y apuntas cuándo y dónde lo viste.
+- **Ficha de cada especie** con foto, nombre científico, grupo, hábitats, época del año, descripción y la lista de tus avistamientos.
+- **Avistamientos** con fecha, lugar, punto en el mapa, sexo y notas. El lugar se autocompleta mientras escribes y también se puede marcar tocando el mapa o con tu ubicación.
+- **Macho y hembra**: en las especies en las que se distinguen, la ficha indica cuál te falta por ver.
+- **Filtros y búsqueda**: descubiertos, por descubrir, con un sexo pendiente, por hábitat, por época, por grupo y por orden.
+- Funciona **sin conexión** y se puede instalar en Android e iPhone.
+
+## Tecnologías
+
+- HTML, CSS y JavaScript sin frameworks ni proceso de compilación.
+- [Leaflet](https://leafletjs.com) para los mapas, con el mapa topográfico de Esri.
+- [Photon](https://photon.komoot.io), basado en OpenStreetMap, para buscar lugares.
+- IndexedDB para guardar los avistamientos en el dispositivo.
+- Service worker y manifest para que sea instalable y funcione sin conexión.
+- Python para preparar los datos: el catálogo de especies, las fotos y los iconos.
 
 ## Estructura
 
 ```
-index.html              página de la app
-css/estilos.css         estilos
-js/app.js               lógica de la interfaz
-js/datos.js             guardar y leer datos (ahora en el navegador; luego Supabase)
-sw.js                   service worker (instalación y uso sin conexión)
-manifest.webmanifest    datos para "Añadir a pantalla de inicio"
-datos/especies.json     catálogo de especies (se genera, no editar a mano)
-datos/creditos.json     autor y licencia de cada foto
-img/aves/               fotos recortadas de cada especie
-img/iconos/             iconos de la app
-herramientas/           scripts para generar el catálogo, las fotos y los iconos
+├── index.html
+├── manifest.webmanifest
+├── sw.js                   service worker
+├── css/estilos.css
+├── js/
+│   ├── app.js              interfaz: pokédex, fichas, filtros y formularios
+│   ├── datos.js            lectura y guardado de datos
+│   ├── lugares.js          búsqueda de lugares
+│   ├── mapa.js             mapas
+│   ├── util.js             utilidades comunes
+│   └── vida.js             animaciones del fondo y al descubrir una especie
+├── datos/
+│   ├── especies.json       catálogo de especies (generado)
+│   └── creditos.json       autor y licencia de cada foto
+├── img/
+│   ├── aves/               una imagen por especie, sin fondo y de 400×400
+│   ├── iconos/
+│   └── silueta.svg
+└── herramientas/           scripts para generar los datos y las imágenes
 ```
 
-## Probarla en el ordenador
+## Ejecutar en local
 
-Hace falta abrirla a través de un servidor (con doble clic no funciona el service worker ni la carga del catálogo). Desde la carpeta del proyecto:
+La app tiene que servirse desde un servidor, porque abriendo `index.html` directamente el navegador no carga el catálogo. Por ejemplo:
 
 ```
 python -m http.server 8000
 ```
 
-y abre <http://localhost:8000> en el navegador.
+y después se abre http://localhost:8000.
 
-## Probarla en el móvil
+## Herramientas
 
-Con el ordenador y el móvil en la misma wifi, lanza el servidor como arriba y abre `http://IP-DEL-ORDENADOR:8000` en el móvil (la IP sale con `ipconfig`). Para instalarla y usar la ubicación hace falta HTTPS, así que lo cómodo es publicarla en GitHub Pages.
+Los scripts de `herramientas/` se ejecutan desde la raíz del proyecto:
 
-## Publicar en GitHub Pages
-
-1. Crea un repositorio en GitHub y sube esta carpeta.
-2. En el repositorio: **Settings → Pages → Build and deployment → Deploy from a branch**, rama `main`, carpeta `/ (root)`.
-3. En un par de minutos estará en `https://TU-USUARIO.github.io/NOMBRE-REPO/`.
-
-Cada vez que publiques cambios, sube el número de `VERSION` en `sw.js` para que los móviles descarguen la versión nueva.
-
-## Instalar en el móvil
-
-- **Android (Chrome)**: botón de descarga de la cabecera, o menú ⋮ → *Instalar aplicación*.
-- **iPhone (Safari)**: botón Compartir → *Añadir a pantalla de inicio*.
-
-## Scripts
-
-- `python herramientas/especies_fuente.py` regenera `datos/especies.json` tras editar la lista de especies.
-- `python herramientas/descargar_imagenes.py` descarga y recorta las fotos (necesita `pip install "rembg[cpu]" pillow`).
-- `python herramientas/generar_iconos.py` regenera los iconos.
+| Script | Qué hace |
+| --- | --- |
+| `especies_fuente.py` | Contiene la lista de especies y genera `datos/especies.json`. |
+| `descargar_imagenes.py` | Descarga una foto con licencia libre de cada especie desde Wikimedia Commons, le quita el fondo y guarda los créditos. Necesita `pip install "rembg[cpu]" pillow`. |
+| `cuadrar_imagenes.py` | Pasa todas las imágenes a un cuadrado de 400×400 con el pájaro centrado. |
+| `generar_iconos.py` | Genera los iconos de la app. |
+| `revision.html` | Página para revisar todas las imágenes recortadas de un vistazo. |
 
 ## Créditos
 
-Las fotos proceden de Wikimedia Commons con licencias libres; el autor y la licencia de cada una aparecen en su ficha y en `datos/creditos.json`. Mapas © colaboradores de OpenStreetMap.
+- Las fotos de las aves son de Wikimedia Commons y tienen licencias libres. El autor y la licencia de cada una aparecen en su ficha y en `datos/creditos.json`.
+- Mapa © Esri, HERE, Garmin, FAO, NOAA y colaboradores de OpenStreetMap.
+- Búsqueda de lugares con Photon, de Komoot, sobre datos de © colaboradores de OpenStreetMap.
 
 ## Próximos pasos
 
-- Cuentas de usuario y guardado en la nube con Supabase (solo cambia `js/datos.js`), con Row Level Security para que cada usuario solo acceda a sus avistamientos.
+- Cuentas de usuario para tener la pokédex sincronizada entre dispositivos.

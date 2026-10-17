@@ -1,20 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Fuente del catálogo de Payarinos: aves que se pueden ver con regularidad en Asturias
+Catálogo de especies de Avedex: aves que se pueden ver con regularidad en Asturias
 (residentes, estivales, invernantes, migrantes y aves marinas de paso visibles desde la costa).
-Se excluyen las rarezas accidentales.
+Se dejan fuera las rarezas accidentales.
 
-Formato de cada fila (separado por |):
-nombre | científico | familia | hábitats | estatus | dimorfismo | descripción
+Cada fila de DATOS tiene siete campos separados por «|»:
+    nombre | científico | familia | hábitats | estatus | dimorfismo | descripción
 
-hábitats: M mar abierto, C costa (playas, acantilados), H humedales, ríos y estuarios,
-          B bosque, A alta montaña y roquedos, P campiña, prados y matorral, U pueblos y ciudades
-estatus:  R residente, E estival (cría), I invernante, P de paso (migración)
-dimorfismo: 1 si macho y hembra se distinguen a simple vista, 0 si no
+    hábitats    M mar abierto · C costa · H humedales y ríos · B bosque · A alta montaña
+                P campiña y matorral · U pueblos y ciudades
+    estatus     R residente · E estival (cría) · I invernante · P de paso
+    dimorfismo  1 si macho y hembra se distinguen a simple vista, 0 si no
 
-Ejecutar:  python herramientas/especies_fuente.py   -> genera datos/especies.json
+Uso:  python herramientas/especies_fuente.py   →   genera datos/especies.json
 """
-import json, re, unicodedata, pathlib
+import json
+import pathlib
+import re
+import unicodedata
+
+SALIDA = pathlib.Path(__file__).resolve().parent.parent / "datos" / "especies.json"
 
 GRUPOS = {
     "Anatidae": "Patos y gansos",
@@ -314,46 +319,47 @@ Escribano palustre|Emberiza schoeniclus|Emberizidae|H|I|1|El macho tiene la cabe
 """
 
 
-def slug(t):
-    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
-    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+def slug(texto):
+    """'Morus bassanus' → 'morus-bassanus'."""
+    texto = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", texto).strip("-")
 
 
-def main():
-    especies = []
-    vistos = set()
-    for n, linea in enumerate([l for l in DATOS.strip().splitlines() if l.strip()], 1):
-        partes = [p.strip() for p in linea.split("|")]
-        assert len(partes) == 7, linea
-        nombre, cientifico, familia, hab, est, dimorf, desc = partes
-        assert familia in GRUPOS, familia
-        assert cientifico not in vistos, cientifico
+def leer_especies():
+    especies, vistos = [], set()
+    filas = [linea for linea in DATOS.strip().splitlines() if linea.strip()]
+    for numero, linea in enumerate(filas, 1):
+        campos = [c.strip() for c in linea.split("|")]
+        assert len(campos) == 7, f"La fila {numero} no tiene 7 campos: {linea}"
+        nombre, cientifico, familia, habitats, estatus, dimorfismo, descripcion = campos
+        assert familia in GRUPOS, f"Familia sin grupo asignado: {familia}"
+        assert cientifico not in vistos, f"Especie repetida: {cientifico}"
+        assert all(h in HABITATS for h in habitats), f"Hábitat desconocido en: {linea}"
+        assert all(e in ESTATUS for e in estatus), f"Estatus desconocido en: {linea}"
         vistos.add(cientifico)
-        assert all(h in HABITATS for h in hab), linea
-        assert all(e in ESTATUS for e in est), linea
-        id_ = slug(cientifico)
+        id_especie = slug(cientifico)
         especies.append({
-            "id": id_,
-            "numero": n,
+            "id": id_especie,
+            "numero": numero,
             "nombre": nombre,
             "cientifico": cientifico,
             "familia": familia,
             "grupo": GRUPOS[familia],
-            "habitats": [HABITATS[h] for h in hab],
-            "estatus": [ESTATUS[e] for e in est],
-            "dimorfismo": dimorf == "1",
-            "descripcion": desc,
-            "imagen": f"img/aves/{id_}.webp",
+            "habitats": [HABITATS[h] for h in habitats],
+            "estatus": [ESTATUS[e] for e in estatus],
+            "dimorfismo": dimorfismo == "1",
+            "descripcion": descripcion,
+            "imagen": f"img/aves/{id_especie}.webp",
         })
-    raiz = pathlib.Path(__file__).resolve().parent.parent
-    salida = raiz / "datos" / "especies.json"
-    salida.parent.mkdir(exist_ok=True)
-    salida.write_text(json.dumps({
-        "region": "Asturias",
-        "total": len(especies),
-        "especies": especies,
-    }, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"{len(especies)} especies -> {salida}")
+    return especies
+
+
+def main():
+    especies = leer_especies()
+    SALIDA.parent.mkdir(exist_ok=True)
+    catalogo = {"region": "Asturias", "total": len(especies), "especies": especies}
+    SALIDA.write_text(json.dumps(catalogo, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{len(especies)} especies → {SALIDA}")
 
 
 if __name__ == "__main__":

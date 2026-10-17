@@ -1,6 +1,6 @@
 {
-  "name": "Payarinos — pokédex de pájaros de Asturias",
-  "short_name": "Payarinos",
+  "name": "Avedex — pokédex de los pájaros de Asturias",
+  "short_name": "Avedex",
   "description": "Apunta los pájaros que ves en Asturias y completa tu pokédex.",
   "lang": "es",
   "start_url": "./",

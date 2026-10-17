@@ -3,59 +3,31 @@ import {
   guardarAvistamiento, borrarAvistamiento,
 } from "./datos.js";
 import { buscarLugares, nombreDelPunto } from "./lugares.js";
+import { CENTRO_ASTURIAS, hayMapas, crearMapa, chincheta } from "./mapa.js";
 import { iniciarCielo, plumas } from "./vida.js";
+import { $, numero, normalizar, hoy, fechaLarga, escapar, avisar, ponerImagen, cerrarAlTocarFuera } from "./util.js";
 
-const SILUETA_GENERICA = "img/silueta.svg";
-const CENTRO_ASTURIAS = [43.36, -5.85];
+const AVISO_BLOQUEADA = "Aún no lo has descubierto. Toca + cuando lo veas";
+const ESTATUS = ["Residente", "Estival", "Invernante", "De paso"];
+const FILTROS_INICIALES = () => ({ estado: "todos", habitats: new Set(), estatus: new Set(), grupo: "", orden: "numero" });
 
-const $ = (sel) => document.querySelector(sel);
 const estado = {
   especies: [],
   porId: new Map(),
   creditos: {},
-  resumen: new Map(), // especieId -> { total, macho, hembra, ultima }
+  resumen: new Map(), // especieId → { total, macho, hembra, ultima, anios }
   totalAvistamientos: 0,
-  filtros: { texto: "", estado: "todos", habitats: new Set(), estatus: new Set(), grupo: "", orden: "numero" },
-  scrollPokedex: 0,
+  filtros: { texto: "", ...FILTROS_INICIALES() },
   fichaActual: null,
-  revelar: null, // id de la especie recién descubierta, para animar su ficha
+  scrollPokedex: 0,
+  revelar: null, // especie recién descubierta, para animar su ficha al abrirla
 };
 
 const descubierta = (id) => estado.resumen.has(id);
 
-/* ---------- Utilidades ---------- */
-
-const numero = (n) => String(n).padStart(3, "0");
-const normalizar = (t) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-const hoy = () => {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-};
-const fechaLarga = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
-
-function escapar(t) {
-  return String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-}
-
-function avisar(texto, duracion = 2600) {
-  const t = $("#toast");
-  t.textContent = texto;
-  t.hidden = false;
-  clearTimeout(avisar.temporizador);
-  avisar.temporizador = setTimeout(() => (t.hidden = true), duracion);
-}
-
-function ponerImagen(img, especie) {
-  img.onerror = () => {
-    img.onerror = null;
-    img.src = SILUETA_GENERICA;
-    img.classList.add("generica");
-  };
-  img.classList.remove("generica");
-  img.src = especie.imagen;
-}
-
-/* ---------- Resumen de avistamientos ---------- */
+/* =====================================================================
+   Resumen de avistamientos y cabecera
+   ===================================================================== */
 
 async function recalcularResumen() {
   const todos = await obtenerAvistamientos();
@@ -77,54 +49,66 @@ function pintarCabecera() {
   const total = estado.especies.length;
   const vistos = estado.resumen.size;
   const anio = String(new Date().getFullYear());
-  let ambos = 0, esteAnio = 0;
+  let ambosSexos = 0;
+  let esteAnio = 0;
   for (const [id, r] of estado.resumen) {
-    if (estado.porId.get(id)?.dimorfismo && r.macho && r.hembra) ambos++;
+    if (estado.porId.get(id).dimorfismo && r.macho && r.hembra) ambosSexos++;
     if (r.anios.has(anio)) esteAnio++;
   }
+  const porcentaje = total ? (vistos / total) * 100 : 0;
+
   $("#num-vistos").textContent = vistos;
   $("#num-total").textContent = total;
-  const pct = total ? (vistos / total) * 100 : 0;
-  $("#est-descubiertos").textContent = `${pct.toLocaleString("es-ES", { maximumFractionDigits: pct < 10 ? 1 : 0 })}%`;
-  $("#est-sexos").textContent = ambos;
+  $("#est-descubiertos").textContent = `${porcentaje.toLocaleString("es-ES", { maximumFractionDigits: porcentaje < 10 ? 1 : 0 })}%`;
+  $("#est-sexos").textContent = ambosSexos;
   $("#est-avistamientos").textContent = estado.totalAvistamientos;
   $("#est-anio").textContent = esteAnio;
-  $("#barra-progreso").style.width = `${pct}%`;
+  $("#barra-progreso").style.width = `${porcentaje}%`;
 }
 
-/* ---------- Pokédex ---------- */
+/** Vuelve a calcular todo lo que depende de los avistamientos. */
+async function refrescar() {
+  await recalcularResumen();
+  pintarCabecera();
+  actualizarTeselas();
+  aplicarFiltros();
+}
+
+/* =====================================================================
+   Pokédex: casillas, filtros y búsqueda
+   ===================================================================== */
 
 function crearTeselas() {
   const lista = $("#cuadricula");
-  const frag = document.createDocumentFragment();
-  for (const e of estado.especies) {
+  lista.replaceChildren(...estado.especies.map((e) => {
     const li = document.createElement("li");
     li.dataset.id = e.id;
     li.innerHTML = `
-      <a class="tesela">
+      <a class="tesela" role="link">
         <span class="tesela-img"><img loading="lazy" decoding="async" alt=""></span>
         <span class="tesela-num">${numero(e.numero)}</span>
         <span class="tesela-sexos" aria-hidden="true"></span>
       </a>`;
     ponerImagen(li.querySelector("img"), e);
-    frag.append(li);
-  }
-  lista.replaceChildren(frag);
+    return li;
+  }));
+  lista.addEventListener("click", (ev) => {
+    const tesela = ev.target.closest(".tesela");
+    if (tesela && !tesela.hasAttribute("href")) avisar(AVISO_BLOQUEADA);
+  });
 }
 
 function actualizarTeselas() {
   for (const li of $("#cuadricula").children) {
     const e = estado.porId.get(li.dataset.id);
     const r = estado.resumen.get(e.id);
-    const a = li.firstElementChild;
-    a.classList.toggle("descubierta", !!r);
-    if (r) a.setAttribute("href", `#/especie/${e.id}`);
-    else a.removeAttribute("href");
-    a.setAttribute("role", "link");
-    a.setAttribute("aria-disabled", String(!r));
-    a.setAttribute("aria-label", r ? `${numero(e.numero)} ${e.nombre}` : `${numero(e.numero)} ???, sin descubrir`);
-    const sexos = a.querySelector(".tesela-sexos");
-    sexos.innerHTML = r && e.dimorfismo
+    const tesela = li.firstElementChild;
+    tesela.classList.toggle("descubierta", Boolean(r));
+    tesela.setAttribute("aria-disabled", String(!r));
+    tesela.setAttribute("aria-label", r ? `${numero(e.numero)} ${e.nombre}` : `${numero(e.numero)} ???, sin descubrir`);
+    if (r) tesela.href = `#/especie/${e.id}`;
+    else tesela.removeAttribute("href");
+    tesela.querySelector(".tesela-sexos").innerHTML = r && e.dimorfismo
       ? `<i class="${r.macho ? "si" : ""}">♂</i><i class="${r.hembra ? "si" : ""}">♀</i>`
       : "";
   }
@@ -140,6 +124,7 @@ function cumpleFiltros(e) {
   if (f.habitats.size && !e.habitats.some((h) => f.habitats.has(h))) return false;
   if (f.estatus.size && !e.estatus.some((s) => f.estatus.has(s))) return false;
   if (f.texto) {
+    // Por nombre solo se encuentran los ya descubiertos; el resto, por número
     const t = normalizar(f.texto);
     const porNombre = r && (normalizar(e.nombre).includes(t) || normalizar(e.cientifico).includes(t));
     if (!porNombre && !numero(e.numero).includes(t)) return false;
@@ -150,234 +135,239 @@ function cumpleFiltros(e) {
 function aplicarFiltros() {
   const f = estado.filtros;
   const visibles = estado.especies.filter(cumpleFiltros);
-  const orden = [...visibles];
-  if (f.orden === "nombre") orden.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+  if (f.orden === "nombre") visibles.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
   if (f.orden === "reciente") {
-    orden.sort((a, b) => (estado.resumen.get(b.id)?.ultima ?? "").localeCompare(estado.resumen.get(a.id)?.ultima ?? "") || a.numero - b.numero);
+    const ultima = (e) => estado.resumen.get(e.id)?.ultima ?? "";
+    visibles.sort((a, b) => ultima(b).localeCompare(ultima(a)) || a.numero - b.numero);
   }
-  const lista = $("#cuadricula");
-  const porId = new Map([...lista.children].map((li) => [li.dataset.id, li]));
-  const ids = new Set(orden.map((e) => e.id));
-  for (const li of porId.values()) li.hidden = !ids.has(li.dataset.id);
-  for (const e of orden) lista.append(porId.get(e.id)); // reordena sin recrear imágenes
 
-  const activos = (f.estado !== "todos") + f.habitats.size + f.estatus.size + !!f.grupo + (f.orden !== "numero");
+  // Se ocultan y reordenan las casillas existentes, sin volver a crear las imágenes
+  const lista = $("#cuadricula");
+  const casillas = new Map([...lista.children].map((li) => [li.dataset.id, li]));
+  const ids = new Set(visibles.map((e) => e.id));
+  for (const [id, li] of casillas) li.hidden = !ids.has(id);
+  for (const e of visibles) lista.append(casillas.get(e.id));
+
+  const total = estado.especies.length;
+  const activos = (f.estado !== "todos") + f.habitats.size + f.estatus.size + Boolean(f.grupo) + (f.orden !== "numero");
   $("#marca-filtros").hidden = !activos;
-  $("#vacio").hidden = orden.length > 0;
-  const aviso = $("#aviso-filtro");
-  aviso.hidden = orden.length === estado.especies.length;
-  aviso.textContent = `Mostrando ${orden.length} de ${estado.especies.length}`;
+  $("#vacio").hidden = visibles.length > 0;
+  $("#aviso-filtro").hidden = visibles.length === total;
+  $("#aviso-filtro").textContent = `Mostrando ${visibles.length} de ${total}`;
 }
 
 function prepararFiltros() {
+  const panel = $("#panel-filtros");
   const habitats = [...new Set(estado.especies.flatMap((e) => e.habitats))];
-  const estatus = ["Residente", "Estival", "Invernante", "De paso"];
   const grupos = [...new Set(estado.especies.map((e) => e.grupo))];
+  const casillas = (nombre, valores) => valores
+    .map((v) => `<label><input type="checkbox" name="${nombre}" value="${escapar(v)}"><span>${escapar(v)}</span></label>`)
+    .join("");
 
-  const chips = (contenedor, valores, nombre) => {
-    contenedor.innerHTML = valores.map((v) =>
-      `<label><input type="checkbox" name="${nombre}" value="${escapar(v)}"><span>${escapar(v)}</span></label>`).join("");
-  };
-  chips($("#opciones-habitat"), habitats, "habitat");
-  chips($("#opciones-estatus"), estatus, "estatus");
+  $("#opciones-habitat").innerHTML = casillas("habitat", habitats);
+  $("#opciones-estatus").innerHTML = casillas("estatus", ESTATUS);
   $("#filtro-grupo").insertAdjacentHTML("beforeend", grupos.map((g) => `<option>${escapar(g)}</option>`).join(""));
 
-  const panel = $("#panel-filtros");
-  panel.addEventListener("change", (ev) => {
-    const el = ev.target, f = estado.filtros;
+  panel.addEventListener("change", ({ target: el }) => {
+    const f = estado.filtros;
     if (el.name === "estado") f.estado = el.value;
     if (el.name === "orden") f.orden = el.value;
-    if (el.name === "habitat") el.checked ? f.habitats.add(el.value) : f.habitats.delete(el.value);
-    if (el.name === "estatus") el.checked ? f.estatus.add(el.value) : f.estatus.delete(el.value);
-    if (el.id === "filtro-grupo") f.grupo = el.value;
+    if (el.name === "habitat") f.habitats[el.checked ? "add" : "delete"](el.value);
+    if (el.name === "estatus") f.estatus[el.checked ? "add" : "delete"](el.value);
+    if (el.name === "grupo") f.grupo = el.value;
     aplicarFiltros();
   });
   $("#btn-limpiar").addEventListener("click", () => {
-    Object.assign(estado.filtros, { estado: "todos", habitats: new Set(), estatus: new Set(), grupo: "", orden: "numero" });
+    Object.assign(estado.filtros, FILTROS_INICIALES());
     panel.querySelector("form").reset();
     aplicarFiltros();
   });
   $("#btn-filtros").addEventListener("click", () => panel.showModal());
   cerrarAlTocarFuera(panel);
+}
 
-  const caja = $("#caja-busqueda"), entrada = $("#busqueda");
-  $("#btn-buscar").addEventListener("click", () => {
+function prepararBusqueda() {
+  const boton = $("#btn-buscar");
+  const caja = $("#caja-busqueda");
+  const entrada = $("#busqueda");
+  boton.addEventListener("click", () => {
     caja.hidden = !caja.hidden;
-    $("#btn-buscar").classList.toggle("activo", !caja.hidden);
-    if (!caja.hidden) entrada.focus();
-    else if (entrada.value) { entrada.value = ""; estado.filtros.texto = ""; aplicarFiltros(); }
+    boton.classList.toggle("activo", !caja.hidden);
+    if (!caja.hidden) {
+      entrada.focus();
+    } else if (entrada.value) {
+      entrada.value = "";
+      estado.filtros.texto = "";
+      aplicarFiltros();
+    }
   });
-  entrada.addEventListener("input", () => { estado.filtros.texto = entrada.value.trim(); aplicarFiltros(); });
+  entrada.addEventListener("input", () => {
+    estado.filtros.texto = entrada.value.trim();
+    aplicarFiltros();
+  });
 }
 
-function cerrarAlTocarFuera(dialogo) {
-  dialogo.addEventListener("click", (ev) => { if (ev.target === dialogo) dialogo.close(); });
-}
+/* =====================================================================
+   Ficha de especie
+   ===================================================================== */
 
-/* ---------- Ficha de especie ---------- */
+const mapaFicha = { mapa: null, capa: null, marcadores: new Map() };
 
+/** Pinta la ficha de una especie. Devuelve false si no se puede ver (aún sin descubrir). */
 async function mostrarFicha(id) {
   const e = estado.porId.get(id);
   if (!e || !descubierta(id)) {
-    if (e) avisar("Aún no lo has descubierto. Toca + cuando lo veas");
+    if (e) avisar(AVISO_BLOQUEADA);
     location.replace("#/");
     return false;
   }
   estado.fichaActual = e;
-  const avs = await obtenerAvistamientosDe(id);
   const r = estado.resumen.get(id);
 
-  $("#ficha-numero").textContent = `Nº ${numero(e.numero)}`;
+  // Flechas: solo recorren las especies ya descubiertas
   const vistas = estado.especies.filter((x) => descubierta(x.id));
   const i = vistas.indexOf(e);
-  const anterior = vistas[(i - 1 + vistas.length) % vistas.length];
-  const siguiente = vistas[(i + 1) % vistas.length];
-  for (const [sel, dest] of [["#ficha-anterior", anterior], ["#ficha-siguiente", siguiente]]) {
-    const a = $(sel);
-    a.href = `#/especie/${dest.id}`;
-    a.hidden = vistas.length < 2;
+  const vecinas = { "#ficha-anterior": vistas.at(i - 1), "#ficha-siguiente": vistas[(i + 1) % vistas.length] };
+  for (const [selector, vecina] of Object.entries(vecinas)) {
+    $(selector).href = `#/especie/${vecina.id}`;
+    $(selector).hidden = vistas.length < 2;
   }
 
-  const img = $("#ficha-img");
-  ponerImagen(img, e);
-  img.alt = e.nombre;
-  $("#vista-ficha").classList.add("descubierta");
-
+  $("#ficha-numero").textContent = `Nº ${numero(e.numero)}`;
+  ponerImagen($("#ficha-img"), e);
+  $("#ficha-img").alt = e.nombre;
   $("#ficha-nombre").textContent = e.nombre;
   $("#ficha-cientifico").textContent = e.cientifico;
-  $("#ficha-estado").textContent =
-    `Visto ${r.total === 1 ? "1 vez" : `${r.total} veces`} · última el ${fechaLarga(r.ultima)}`;
+  $("#ficha-estado").textContent = `Visto ${r.total === 1 ? "1 vez" : `${r.total} veces`} · última el ${fechaLarga(r.ultima)}`;
   $("#ficha-etiquetas").innerHTML = [
     `<li class="etiqueta-grupo">${escapar(e.grupo)}</li>`,
-    ...e.estatus.map((s) => `<li>${escapar(s)}</li>`),
-    ...e.habitats.map((h) => `<li>${escapar(h)}</li>`),
+    ...[...e.estatus, ...e.habitats].map((t) => `<li>${escapar(t)}</li>`),
   ].join("");
   $("#ficha-descripcion").textContent = e.descripcion;
-
   $("#ficha-sexos").innerHTML = e.dimorfismo
-    ? ["macho", "hembra"].map((s) => {
-        const visto = r?.[s];
-        return `<div class="sexo ${visto ? "visto" : ""}">
-          <span class="sexo-simbolo" aria-hidden="true">${s === "macho" ? "♂" : "♀"}</span>
-          <span><strong>${s === "macho" ? "Macho" : "Hembra"}</strong><br>${visto ? "Visto" : "Te falta"}</span>
-        </div>`;
-      }).join("")
+    ? [["macho", "♂", "Macho"], ["hembra", "♀", "Hembra"]].map(([sexo, simbolo, nombre]) => `
+        <div class="sexo ${r[sexo] ? "visto" : ""}">
+          <span class="sexo-simbolo" aria-hidden="true">${simbolo}</span>
+          <span><strong>${nombre}</strong><br>${r[sexo] ? "Visto" : "Te falta"}</span>
+        </div>`).join("")
     : `<p class="nota">En esta especie machos y hembras se ven iguales, así que no hace falta distinguirlos.</p>`;
 
-  pintarAvistamientos(avs);
+  pintarAvistamientos(await obtenerAvistamientosDe(id));
 
-  const c = estado.creditos[id];
-  $("#ficha-credito").innerHTML = c
-    ? `Foto: ${escapar(c.autor)} · <a href="${escapar(c.fuente)}" target="_blank" rel="noopener">${escapar(c.licencia)}</a>, vía Wikimedia Commons`
+  const credito = estado.creditos[id];
+  $("#ficha-credito").innerHTML = credito
+    ? `Foto: ${escapar(credito.autor)} · <a href="${escapar(credito.fuente)}" target="_blank" rel="noopener">${escapar(credito.licencia)}</a>, vía Wikimedia Commons`
     : "";
   return true;
 }
 
-function pintarAvistamientos(avs) {
-  $("#ficha-avistamientos").innerHTML = avs.map((a) => `
+function htmlAvistamiento(a) {
+  const sinDetalles = !a.lugar && a.lat == null && a.sexo === "desconocido" && !a.notas;
+  const sexo = { macho: "♂ Macho", hembra: "♀ Hembra" }[a.sexo];
+  const lugar = a.lugar || (a.lat != null ? "Punto marcado en el mapa" : "");
+  return `
     <li class="avistamiento" data-id="${a.id}">
       <div>
-        <p class="av-fecha">${fechaLarga(a.fecha)}${a.sexo !== "desconocido" ? ` <span class="av-sexo">${a.sexo === "macho" ? "♂ Macho" : "♀ Hembra"}</span>` : ""}</p>
-        ${a.lugar ? `<p class="av-lugar">${escapar(a.lugar)}</p>` : a.lat != null ? `<p class="av-lugar">Punto marcado en el mapa</p>` : ""}
-        ${!a.lugar && a.lat == null && a.sexo === "desconocido" && !a.notas ? `<p class="av-lugar">Sin detalles. Toca «Editar» para añadir lugar, sexo y notas.</p>` : ""}
+        <p class="av-fecha">${fechaLarga(a.fecha)}${sexo ? ` <span class="av-sexo">${sexo}</span>` : ""}</p>
+        ${lugar ? `<p class="av-lugar">${escapar(lugar)}</p>` : ""}
+        ${sinDetalles ? `<p class="av-lugar">Sin detalles. Toca «Editar» para añadir lugar, sexo y notas.</p>` : ""}
         ${a.notas ? `<p class="av-notas">${escapar(a.notas)}</p>` : ""}
       </div>
       <div class="av-acciones">
-        ${a.lat != null ? `<button class="btn-texto" data-ver>Ver en el mapa</button>` : ""}
-        <button class="btn-texto" data-editar>Editar</button>
-        <button class="btn-texto peligro" data-borrar>Borrar</button>
+        ${a.lat != null ? `<button class="btn-texto" data-accion="ver">Ver en el mapa</button>` : ""}
+        <button class="btn-texto" data-accion="editar">Editar</button>
+        <button class="btn-texto peligro" data-accion="borrar">Borrar</button>
       </div>
-    </li>`).join("");
+    </li>`;
+}
 
-  marcadoresFicha = new Map();
-  const conPunto = avs.filter((a) => a.lat != null);
+function pintarAvistamientos(avistamientos) {
+  $("#ficha-avistamientos").innerHTML = avistamientos.map(htmlAvistamiento).join("");
+
+  const conPunto = avistamientos.filter((a) => a.lat != null);
   const contenedor = $("#ficha-mapa");
-  contenedor.hidden = !conPunto.length || !window.L;
+  contenedor.hidden = !conPunto.length || !hayMapas();
+  mapaFicha.marcadores.clear();
   if (contenedor.hidden) return;
-  if (!mapaFicha) {
-    mapaFicha = L.map(contenedor, { scrollWheelZoom: false, maxZoom: 16 });
-    capaBase().addTo(mapaFicha);
-    capaFicha = L.layerGroup().addTo(mapaFicha);
+
+  if (!mapaFicha.mapa) {
+    mapaFicha.mapa = crearMapa(contenedor, { scrollWheelZoom: false });
+    mapaFicha.capa = L.layerGroup().addTo(mapaFicha.mapa);
   }
-  capaFicha.clearLayers();
-  const puntos = conPunto.map((a) => {
-    const m = L.marker([a.lat, a.lng], { icon: chincheta() })
+  mapaFicha.capa.clearLayers();
+  for (const a of conPunto) {
+    const marcador = chincheta([a.lat, a.lng])
       .bindPopup(`<strong>${fechaLarga(a.fecha)}</strong>${a.lugar ? `<br>${escapar(a.lugar)}` : ""}`)
-      .addTo(capaFicha);
-    marcadoresFicha.set(a.id, m);
-    return [a.lat, a.lng];
-  });
+      .addTo(mapaFicha.capa);
+    mapaFicha.marcadores.set(a.id, marcador);
+  }
+  // Leaflet necesita que el contenedor ya sea visible para medirlo
   setTimeout(() => {
-    mapaFicha.invalidateSize();
-    puntos.length === 1 ? mapaFicha.setView(puntos[0], 13) : mapaFicha.fitBounds(puntos, { padding: [36, 36], maxZoom: 13 });
+    const puntos = conPunto.map((a) => [a.lat, a.lng]);
+    mapaFicha.mapa.invalidateSize();
+    if (puntos.length === 1) mapaFicha.mapa.setView(puntos[0], 13);
+    else mapaFicha.mapa.fitBounds(puntos, { padding: [36, 36], maxZoom: 13 });
   }, 0);
 }
 
-/* Mapa base (Esri Topographic, gratis y sin clave): tierra en verde, agua en azul y los nombres de los lugares. */
-function capaBase() {
-  return L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
-    maxZoom: 16,
-    attribution: "Mapa © Esri, HERE, Garmin, FAO, NOAA · © OpenStreetMap",
+function prepararFicha() {
+  $("#btn-nuevo").addEventListener("click", () => abrirFormulario({ especie: estado.fichaActual }));
+
+  $("#ficha-avistamientos").addEventListener("click", async (ev) => {
+    const boton = ev.target.closest("[data-accion]");
+    if (!boton) return;
+    const id = boton.closest(".avistamiento").dataset.id;
+    const especie = estado.fichaActual;
+
+    if (boton.dataset.accion === "ver") {
+      const marcador = mapaFicha.marcadores.get(id);
+      $("#ficha-mapa").scrollIntoView({ behavior: "smooth", block: "center" });
+      mapaFicha.mapa.setView(marcador.getLatLng(), 14, { animate: false });
+      marcador.openPopup();
+      return;
+    }
+
+    const avistamiento = (await obtenerAvistamientosDe(especie.id)).find((a) => a.id === id);
+    if (boton.dataset.accion === "editar") {
+      abrirFormulario({ especie, avistamiento });
+      return;
+    }
+    if (!confirm(`¿Borrar el avistamiento del ${fechaLarga(avistamiento.fecha)}?`)) return;
+    await borrarAvistamiento(id);
+    await refrescar();
+    if (descubierta(especie.id)) {
+      await mostrarFicha(especie.id);
+      avisar("Avistamiento borrado");
+    } else {
+      location.hash = "#/";
+      avisar(`${especie.nombre} vuelve a estar sin descubrir`);
+    }
   });
 }
 
-function chincheta() {
-  return L.divIcon({
-    className: "chincheta",
-    html: `<svg viewBox="0 0 32 42" width="32" height="42" aria-hidden="true"><path d="M16 1.5C8.3 1.5 2.5 7.4 2.5 15c0 9.6 13.5 25.5 13.5 25.5S29.5 24.6 29.5 15C29.5 7.4 23.7 1.5 16 1.5z"/><circle cx="16" cy="15" r="5.5"/></svg>`,
-    iconSize: [32, 42],
-    iconAnchor: [16, 41],
-    popupAnchor: [0, -36],
-  });
-}
+/* =====================================================================
+   Formulario de avistamiento (nuevo, editar o descubrir una especie)
+   ===================================================================== */
 
-/* ---------- Formulario de avistamiento (también para descubrir) ---------- */
-
-let mapaForm = null, marcadorForm = null, punto = null, editando = null;
-let formEspecie = null, modoDescubrir = false, lugarAutomatico = false;
-let mapaFicha = null, capaFicha = null, marcadoresFicha = new Map();
-
-function fijarPunto(lat, lng, { centrar = false, ponerNombre = false } = {}) {
-  punto = lat == null ? null : { lat: +lat.toFixed(5), lng: +lng.toFixed(5) };
-  $("#btn-quitar-punto").hidden = !punto;
-  $("#texto-punto").textContent = punto ? "Punto marcado en el mapa." : "Toca el mapa para marcar dónde lo viste.";
-  if (mapaForm) {
-    if (marcadorForm) { marcadorForm.remove(); marcadorForm = null; }
-    if (punto) {
-      marcadorForm = L.marker([punto.lat, punto.lng], { icon: chincheta() }).addTo(mapaForm);
-      if (centrar) mapaForm.setView([punto.lat, punto.lng], Math.max(mapaForm.getZoom(), 13), { animate: false });
-    }
-  }
-  if (punto && ponerNombre) rellenarLugarDesdePunto(punto);
-}
-
-async function rellenarLugarDesdePunto(p) {
-  const campo = $("#form-avistamiento").lugar;
-  if (campo.value.trim() && !lugarAutomatico) return; // no pisar lo que haya escrito el usuario
-  campo.placeholder = "Buscando el nombre del sitio…";
-  try {
-    const nombre = await nombreDelPunto(p.lat, p.lng);
-    if (punto === p && nombre && (!campo.value.trim() || lugarAutomatico)) {
-      campo.value = nombre;
-      lugarAutomatico = true;
-    }
-  } catch { /* sin conexión: el usuario puede escribirlo a mano */ }
-  campo.placeholder = "Escribe la zona o toca el mapa";
-}
+const formulario = {
+  especie: null,
+  avistamiento: null, // el que se está editando, si lo hay
+  descubrir: false,
+  punto: null,
+  lugarAutomatico: false, // el campo "Lugar" lo ha rellenado la app, no el usuario
+  mapa: null,
+  marcador: null,
+};
 
 function abrirFormulario({ especie, avistamiento = null, descubrir = false }) {
-  formEspecie = especie;
-  modoDescubrir = descubrir;
-  editando = avistamiento;
-  lugarAutomatico = false;
+  Object.assign(formulario, { especie, avistamiento, descubrir, lugarAutomatico: false });
   const form = $("#form-avistamiento");
   form.reset();
   ocultarSugerencias();
+
   $("#form-titulo").textContent = descubrir ? "¿Lo has visto?" : avistamiento ? "Editar avistamiento" : "Nuevo avistamiento";
   $("#btn-guardar-avistamiento").textContent = descubrir ? "¡Lo he visto!" : "Guardar avistamiento";
-
-  const cab = $("#form-especie");
-  cab.hidden = !descubrir;
+  $("#form-especie").hidden = !descubrir;
   if (descubrir) {
     ponerImagen($("#form-especie-img"), especie);
     $("#form-especie-nombre").textContent = especie.nombre;
@@ -388,32 +378,62 @@ function abrirFormulario({ especie, avistamiento = null, descubrir = false }) {
   form.fecha.max = hoy();
   form.lugar.value = avistamiento?.lugar ?? "";
   form.notas.value = avistamiento?.notas ?? "";
+  form.sexo.value = especie.dimorfismo ? (avistamiento?.sexo ?? "desconocido") : "desconocido";
   $("#opciones-sexo").hidden = !especie.dimorfismo;
   $("#nota-sexo").hidden = especie.dimorfismo;
-  form.sexo.value = especie.dimorfismo ? (avistamiento?.sexo ?? "desconocido") : "desconocido";
 
-  $("#panel-avistamiento").showModal();
-  $("#panel-avistamiento").scrollTop = 0;
+  const panel = $("#panel-avistamiento");
+  panel.showModal();
+  panel.scrollTop = 0;
 
-  const contenedor = $("#form-mapa");
-  contenedor.hidden = !window.L;
-  if (window.L) {
-    if (!mapaForm) {
-      mapaForm = L.map(contenedor, { maxZoom: 16 }).setView(CENTRO_ASTURIAS, 8);
-      capaBase().addTo(mapaForm);
-      mapaForm.on("click", (ev) => fijarPunto(ev.latlng.lat, ev.latlng.lng, { centrar: true, ponerNombre: true }));
+  $("#form-mapa").hidden = !hayMapas();
+  if (hayMapas()) {
+    if (!formulario.mapa) {
+      formulario.mapa = crearMapa($("#form-mapa")).setView(CENTRO_ASTURIAS, 8);
+      formulario.mapa.on("click", ({ latlng }) => fijarPunto(latlng.lat, latlng.lng, { centrar: true, ponerNombre: true }));
     }
     setTimeout(() => {
-      mapaForm.invalidateSize();
-      if (avistamiento?.lat != null) mapaForm.setView([avistamiento.lat, avistamiento.lng], 13);
-      else mapaForm.setView(CENTRO_ASTURIAS, 8);
+      formulario.mapa.invalidateSize();
+      if (avistamiento?.lat != null) formulario.mapa.setView([avistamiento.lat, avistamiento.lng], 13);
+      else formulario.mapa.setView(CENTRO_ASTURIAS, 8);
     }, 60);
   }
   fijarPunto(avistamiento?.lat ?? null, avistamiento?.lng ?? null);
 }
 
-/* Autocompletado del campo "Lugar" */
-let busquedaEnCurso = null, temporizadorLugar = null;
+function fijarPunto(lat, lng, { centrar = false, ponerNombre = false } = {}) {
+  const punto = lat == null ? null : { lat: +lat.toFixed(5), lng: +lng.toFixed(5) };
+  formulario.punto = punto;
+  $("#btn-quitar-punto").hidden = !punto;
+  $("#texto-punto").textContent = punto ? "Punto marcado en el mapa." : "Toca el mapa para marcar dónde lo viste.";
+
+  if (formulario.mapa) {
+    formulario.marcador?.remove();
+    formulario.marcador = punto ? chincheta([punto.lat, punto.lng]).addTo(formulario.mapa) : null;
+    if (punto && centrar) {
+      formulario.mapa.setView([punto.lat, punto.lng], Math.max(formulario.mapa.getZoom(), 13), { animate: false });
+    }
+  }
+  if (punto && ponerNombre) rellenarLugarDesdePunto(punto);
+}
+
+/** Pone en "Lugar" el nombre del sitio marcado, sin pisar lo que haya escrito el usuario. */
+async function rellenarLugarDesdePunto(punto) {
+  const campo = $("#form-avistamiento").lugar;
+  if (campo.value.trim() && !formulario.lugarAutomatico) return;
+  campo.placeholder = "Buscando el nombre del sitio…";
+  try {
+    const nombre = await nombreDelPunto(punto.lat, punto.lng);
+    const sigueSiendoElMismo = formulario.punto === punto;
+    if (nombre && sigueSiendoElMismo && (!campo.value.trim() || formulario.lugarAutomatico)) {
+      campo.value = nombre;
+      formulario.lugarAutomatico = true;
+    }
+  } catch {
+    // Sin conexión: el lugar se puede escribir a mano
+  }
+  campo.placeholder = "Escribe la zona o toca el mapa";
+}
 
 function ocultarSugerencias() {
   const lista = $("#lugar-sugerencias");
@@ -424,247 +444,266 @@ function ocultarSugerencias() {
 function prepararAutocompletado() {
   const campo = $("#form-avistamiento").lugar;
   const lista = $("#lugar-sugerencias");
-  let resultados = [];
+  let sugerencias = [];
+  let espera = null;
+  let busqueda = null;
 
   campo.addEventListener("input", () => {
-    lugarAutomatico = false;
-    clearTimeout(temporizadorLugar);
+    formulario.lugarAutomatico = false;
+    clearTimeout(espera);
     const texto = campo.value.trim();
-    if (texto.length < 3) { ocultarSugerencias(); return; }
-    temporizadorLugar = setTimeout(async () => {
-      busquedaEnCurso?.abort();
-      busquedaEnCurso = new AbortController();
+    if (texto.length < 3) {
+      ocultarSugerencias();
+      return;
+    }
+    espera = setTimeout(async () => {
+      busqueda?.abort();
+      busqueda = new AbortController();
       try {
-        resultados = await buscarLugares(texto, busquedaEnCurso.signal);
+        sugerencias = await buscarLugares(texto, busqueda.signal);
       } catch (err) {
         if (err.name !== "AbortError") ocultarSugerencias();
         return;
       }
-      lista.innerHTML = resultados.map((l, i) => `
+      lista.innerHTML = sugerencias.map((l, i) => `
         <li><button type="button" class="sugerencia" data-i="${i}">
           <span>${escapar(l.nombre)}</span>${l.detalle ? `<small>${escapar(l.detalle)}</small>` : ""}
         </button></li>`).join("");
-      lista.hidden = !resultados.length;
+      lista.hidden = !sugerencias.length;
     }, 300);
   });
 
   lista.addEventListener("click", (ev) => {
-    const b = ev.target.closest(".sugerencia");
-    if (!b) return;
-    const l = resultados[+b.dataset.i];
-    campo.value = l.nombre;
-    lugarAutomatico = true;
+    const boton = ev.target.closest(".sugerencia");
+    if (!boton) return;
+    const lugar = sugerencias[Number(boton.dataset.i)];
+    campo.value = lugar.nombre;
+    formulario.lugarAutomatico = true;
     ocultarSugerencias();
-    fijarPunto(l.lat, l.lng, { centrar: true });
+    fijarPunto(lugar.lat, lugar.lng, { centrar: true });
   });
 
-  campo.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && !lista.hidden) { ev.preventDefault(); ocultarSugerencias(); } });
+  campo.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape" && !lista.hidden) {
+      ev.preventDefault();
+      ocultarSugerencias();
+    }
+  });
   campo.addEventListener("blur", () => setTimeout(ocultarSugerencias, 200));
+}
+
+function usarMiUbicacion() {
+  if (!navigator.geolocation) {
+    avisar("Tu navegador no permite obtener la ubicación");
+    return;
+  }
+  const boton = $("#btn-ubicacion");
+  const terminar = () => {
+    boton.disabled = false;
+    boton.textContent = "Usar mi ubicación";
+  };
+  boton.disabled = true;
+  boton.textContent = "Buscando…";
+  navigator.geolocation.getCurrentPosition(
+    ({ coords }) => {
+      fijarPunto(coords.latitude, coords.longitude, { centrar: true, ponerNombre: true });
+      terminar();
+    },
+    () => {
+      avisar("No se pudo obtener tu ubicación. Revisa el permiso de ubicación del navegador");
+      terminar();
+    },
+    { enableHighAccuracy: true, timeout: 15000 },
+  );
+}
+
+async function guardarFormulario() {
+  const form = $("#form-avistamiento");
+  const { especie, avistamiento, descubrir, punto } = formulario;
+  await guardarAvistamiento({
+    ...avistamiento,
+    especieId: especie.id,
+    fecha: form.fecha.value || hoy(),
+    sexo: form.sexo.value || "desconocido",
+    lugar: form.lugar.value.trim(),
+    notas: form.notas.value.trim(),
+    lat: punto?.lat ?? null,
+    lng: punto?.lng ?? null,
+  });
+  $("#panel-avistamiento").close();
+  await refrescar();
+
+  if (descubrir) {
+    estado.revelar = especie.id;
+    location.hash = `#/especie/${especie.id}`;
+  } else {
+    await mostrarFicha(especie.id);
+    avisar("Avistamiento guardado");
+  }
 }
 
 function prepararFormulario() {
   const panel = $("#panel-avistamiento");
-  const form = $("#form-avistamiento");
   cerrarAlTocarFuera(panel);
   panel.querySelector("[data-cerrar]").addEventListener("click", () => panel.close());
-  $("#btn-nuevo").addEventListener("click", () => abrirFormulario({ especie: estado.fichaActual }));
   $("#btn-quitar-punto").addEventListener("click", () => fijarPunto(null));
-  prepararAutocompletado();
-
-  $("#btn-ubicacion").addEventListener("click", () => {
-    if (!navigator.geolocation) return avisar("Tu navegador no permite obtener la ubicación");
-    const btn = $("#btn-ubicacion");
-    btn.disabled = true;
-    btn.textContent = "Buscando…";
-    navigator.geolocation.getCurrentPosition(
-      (pos) => { fijarPunto(pos.coords.latitude, pos.coords.longitude, { centrar: true, ponerNombre: true }); fin(); },
-      () => { avisar("No se pudo obtener tu ubicación. Revisa el permiso de ubicación del navegador"); fin(); },
-      { enableHighAccuracy: true, timeout: 15000 },
-    );
-    function fin() { btn.disabled = false; btn.textContent = "Usar mi ubicación"; }
-  });
-
-  form.addEventListener("submit", async (ev) => {
-    if (ev.submitter?.value !== "guardar") return;
+  $("#btn-ubicacion").addEventListener("click", usarMiUbicacion);
+  $("#form-avistamiento").addEventListener("submit", (ev) => {
     ev.preventDefault();
-    const especie = formEspecie;
-    await guardarAvistamiento({
-      ...(editando ?? {}),
-      especieId: especie.id,
-      fecha: form.fecha.value || hoy(),
-      sexo: form.sexo.value || "desconocido",
-      lugar: form.lugar.value.trim(),
-      notas: form.notas.value.trim(),
-      lat: punto?.lat ?? null,
-      lng: punto?.lng ?? null,
-    });
-    panel.close();
-    await refrescar();
-    if (modoDescubrir) {
-      estado.revelar = especie.id;
-      location.hash = `#/especie/${especie.id}`;
-      return;
-    }
-    await mostrarFicha(especie.id);
-    avisar("Avistamiento guardado");
+    guardarFormulario();
   });
-
-  $("#ficha-avistamientos").addEventListener("click", async (ev) => {
-    const li = ev.target.closest(".avistamiento");
-    if (!li) return;
-    if (ev.target.matches("[data-ver]")) {
-      const m = marcadoresFicha.get(li.dataset.id);
-      if (m && mapaFicha) {
-        $("#ficha-mapa").scrollIntoView({ behavior: "smooth", block: "center" });
-        mapaFicha.setView(m.getLatLng(), 14, { animate: false });
-        m.openPopup();
-      }
-      return;
-    }
-    const avs = await obtenerAvistamientosDe(estado.fichaActual.id);
-    const a = avs.find((x) => x.id === li.dataset.id);
-    if (ev.target.matches("[data-editar]")) abrirFormulario({ especie: estado.fichaActual, avistamiento: a });
-    if (ev.target.matches("[data-borrar]") && confirm(`¿Borrar el avistamiento del ${fechaLarga(a.fecha)}?`)) {
-      await borrarAvistamiento(a.id);
-      await refrescar();
-      if (descubierta(estado.fichaActual.id)) {
-        await mostrarFicha(estado.fichaActual.id);
-        avisar("Avistamiento borrado");
-      } else {
-        location.hash = "#/";
-        avisar(`${estado.fichaActual.nombre} vuelve a estar sin descubrir`);
-      }
-    }
-  });
+  prepararAutocompletado();
 }
 
-/* ---------- Descubrir (selector de especies) ---------- */
+/* =====================================================================
+   Descubrir: elegir qué especie has visto
+   ===================================================================== */
 
 function prepararDescubrir() {
   const panel = $("#panel-descubrir");
   const entrada = $("#descubrir-busqueda");
   const lista = $("#descubrir-resultados");
+  const ayuda = $("#descubrir-ayuda");
   cerrarAlTocarFuera(panel);
   panel.querySelector("[data-cerrar]").addEventListener("click", () => panel.close());
 
   $("#btn-descubrir").addEventListener("click", () => {
     entrada.value = "";
     lista.innerHTML = "";
-    $("#descubrir-ayuda").hidden = false;
+    ayuda.hidden = false;
     panel.showModal();
     entrada.focus();
   });
 
   entrada.addEventListener("input", () => {
     const t = normalizar(entrada.value.trim());
-    $("#descubrir-ayuda").hidden = t.length >= 2;
-    if (t.length < 2) { lista.innerHTML = ""; return; }
-    const coinciden = estado.especies
+    ayuda.hidden = t.length >= 2;
+    if (t.length < 2) {
+      lista.innerHTML = "";
+      return;
+    }
+    const empiezaPor = (e) => normalizar(e.nombre).startsWith(t);
+    const coincidencias = estado.especies
       .filter((e) => normalizar(e.nombre).includes(t) || normalizar(e.cientifico).includes(t))
-      .sort((a, b) => normalizar(b.nombre).startsWith(t) - normalizar(a.nombre).startsWith(t) || a.nombre.localeCompare(b.nombre, "es"))
+      .sort((a, b) => empiezaPor(b) - empiezaPor(a) || a.nombre.localeCompare(b.nombre, "es"))
       .slice(0, 12);
-    lista.innerHTML = coinciden.length
-      ? coinciden.map((e) => `
-        <li><button type="button" class="resultado ${descubierta(e.id) ? "descubierta" : ""}" data-id="${e.id}">
-          <img alt="" src="${e.imagen}" onerror="this.onerror=null;this.src='${SILUETA_GENERICA}'">
-          <span class="resultado-texto">${escapar(e.nombre)}<i>${escapar(e.cientifico)}</i></span>
-          ${descubierta(e.id) ? `<span class="resultado-marca">Ya lo tienes</span>` : ""}
-        </button></li>`).join("")
-      : `<li class="nota">No hay ningún pájaro con ese nombre en la pokédex de Asturias.</li>`;
+
+    if (!coincidencias.length) {
+      lista.innerHTML = `<li class="nota">No hay ningún pájaro con ese nombre en la pokédex de Asturias.</li>`;
+      return;
+    }
+    lista.innerHTML = coincidencias.map((e) => `
+      <li><button type="button" class="resultado ${descubierta(e.id) ? "descubierta" : ""}" data-id="${e.id}">
+        <img alt="">
+        <span class="resultado-texto">${escapar(e.nombre)}<i>${escapar(e.cientifico)}</i></span>
+        ${descubierta(e.id) ? `<span class="resultado-marca">Ya lo tienes</span>` : ""}
+      </button></li>`).join("");
+    lista.querySelectorAll(".resultado").forEach((boton, i) => ponerImagen(boton.querySelector("img"), coincidencias[i]));
   });
 
   lista.addEventListener("click", (ev) => {
-    const btn = ev.target.closest(".resultado");
-    if (!btn) return;
-    const e = estado.porId.get(btn.dataset.id);
+    const boton = ev.target.closest(".resultado");
+    if (!boton) return;
+    const especie = estado.porId.get(boton.dataset.id);
     panel.close();
-    if (descubierta(e.id)) { location.hash = `#/especie/${e.id}`; return; }
-    abrirFormulario({ especie: e, descubrir: true });
+    if (descubierta(especie.id)) location.hash = `#/especie/${especie.id}`;
+    else abrirFormulario({ especie, descubrir: true });
   });
 }
 
-/* ---------- Navegación ---------- */
+/* =====================================================================
+   Navegación entre la pokédex y las fichas (#/ y #/especie/<id>)
+   ===================================================================== */
+
+function animarDescubrimiento() {
+  const figura = $(".ficha-imagen");
+  figura.classList.remove("revelar");
+  void figura.offsetWidth; // reinicia la animación
+  figura.classList.add("revelar");
+  setTimeout(() => plumas(figura), 350);
+  avisar(`¡${estado.fichaActual.nombre} descubierto!`);
+}
 
 async function enrutar() {
-  const m = location.hash.match(/^#\/especie\/([\w-]+)/);
-  const pokedex = $("#vista-pokedex"), ficha = $("#vista-ficha");
-  if (m) {
-    if (!pokedex.hidden) estado.scrollPokedex = scrollY;
-    if (!(await mostrarFicha(m[1]))) return;
-    pokedex.hidden = true;
-    ficha.hidden = false;
-    scrollTo(0, 0);
-    if (estado.revelar === m[1]) {
-      estado.revelar = null;
-      const fig = $(".ficha-imagen");
-      fig.classList.remove("revelar");
-      void fig.offsetWidth;
-      fig.classList.add("revelar");
-      setTimeout(() => plumas(fig), 350);
-      avisar(`¡${estado.fichaActual.nombre} descubierto!`);
-    }
-  } else {
+  const pokedex = $("#vista-pokedex");
+  const ficha = $("#vista-ficha");
+  const id = location.hash.match(/^#\/especie\/([\w-]+)/)?.[1];
+
+  if (!id) {
     ficha.hidden = true;
     pokedex.hidden = false;
     scrollTo(0, estado.scrollPokedex);
+    return;
+  }
+  if (!pokedex.hidden) estado.scrollPokedex = scrollY;
+  if (!(await mostrarFicha(id))) return;
+  pokedex.hidden = true;
+  ficha.hidden = false;
+  scrollTo(0, 0);
+  if (estado.revelar === id) {
+    estado.revelar = null;
+    animarDescubrimiento();
   }
 }
 
-async function refrescar() {
-  await recalcularResumen();
-  pintarCabecera();
-  actualizarTeselas();
-  aplicarFiltros();
-}
-
-/* ---------- Instalación como app ---------- */
+/* =====================================================================
+   Instalar como app
+   ===================================================================== */
 
 function prepararInstalacion() {
-  const btn = $("#btn-instalar");
-  let aviso = null;
-  window.addEventListener("beforeinstallprompt", (ev) => {
-    ev.preventDefault();
-    aviso = ev;
-    btn.hidden = false;
-  });
-  window.addEventListener("appinstalled", () => (btn.hidden = true));
+  const boton = $("#btn-instalar");
   const esIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
   const instalada = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
-  if (esIOS && !instalada) btn.hidden = false;
-  cerrarAlTocarFuera($("#panel-ios"));
-  btn.addEventListener("click", async () => {
-    if (aviso) { aviso.prompt(); await aviso.userChoice; aviso = null; btn.hidden = true; }
-    else if (esIOS) $("#panel-ios").showModal();
-  });
+  let peticion = null; // aviso de instalación de Chrome/Android
 
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
-  }
+  window.addEventListener("beforeinstallprompt", (ev) => {
+    ev.preventDefault();
+    peticion = ev;
+    boton.hidden = false;
+  });
+  window.addEventListener("appinstalled", () => (boton.hidden = true));
+  if (esIOS && !instalada) boton.hidden = false; // en iPhone se explica cómo hacerlo a mano
+
+  cerrarAlTocarFuera($("#panel-ios"));
+  boton.addEventListener("click", async () => {
+    if (peticion) {
+      peticion.prompt();
+      await peticion.userChoice;
+      peticion = null;
+      boton.hidden = true;
+    } else if (esIOS) {
+      $("#panel-ios").showModal();
+    }
+  });
 }
 
-/* ---------- Arranque ---------- */
+/* =====================================================================
+   Arranque
+   ===================================================================== */
 
 async function iniciar() {
   try {
     [estado.especies, estado.creditos] = await Promise.all([obtenerEspecies(), obtenerCreditos()]);
-  } catch (err) {
+  } catch {
     $("#cuadricula").outerHTML = `<p class="vacio">No se pudo cargar el catálogo de pájaros. Comprueba la conexión y recarga la página.</p>`;
     return;
   }
   estado.porId = new Map(estado.especies.map((e) => [e.id, e]));
+
   crearTeselas();
   prepararFiltros();
+  prepararBusqueda();
+  prepararFicha();
   prepararFormulario();
   prepararDescubrir();
   prepararInstalacion();
   iniciarCielo(avisar);
-  $("#cuadricula").addEventListener("click", (ev) => {
-    const t = ev.target.closest(".tesela");
-    if (t && !t.hasAttribute("href")) avisar("Aún no lo has descubierto. Toca + cuando lo veas");
-  });
+
   await refrescar();
   window.addEventListener("hashchange", enrutar);
   await enrutar();
+
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 }
 
 iniciar();
