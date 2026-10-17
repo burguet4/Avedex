@@ -1,4 +1,4 @@
-# Payarinos
+# Avedex
 
 Pokédex de los pájaros de Asturias. Es una web que se instala en el móvil como una app (PWA): apuntas los pájaros que ves y se van desbloqueando en tu colección, al estilo de la pokédex de Pokémon GO.
 
