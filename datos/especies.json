@@ -1,0 +1,4446 @@
+{
+ "region": "Asturias",
+ "total": 251,
+ "especies": [
+  {
+   "id": "anser-anser",
+   "numero": 1,
+   "nombre": "Ánsar común",
+   "cientifico": "Anser anser",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ganso grande y pardo grisáceo con pico anaranjado. En Asturias se ve sobre todo en paso y en invierno, en pequeños bandos en estuarios y prados cercanos.",
+   "imagen": "img/aves/anser-anser.webp"
+  },
+  {
+   "id": "branta-bernicla",
+   "numero": 2,
+   "nombre": "Barnacla carinegra",
+   "cientifico": "Branta bernicla",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ganso pequeño y oscuro con cabeza y cuello negros y una mancha blanca en el cuello. Inverna en los estuarios de Villaviciosa y del Eo, donde pace la zostera.",
+   "imagen": "img/aves/branta-bernicla.webp"
+  },
+  {
+   "id": "tadorna-tadorna",
+   "numero": 3,
+   "nombre": "Tarro blanco",
+   "cientifico": "Tadorna tadorna",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato grande blanco con cabeza verde oscura, banda pectoral castaña y pico rojo; el macho luce una protuberancia en el pico. Frecuente en invierno en los estuarios.",
+   "imagen": "img/aves/tadorna-tadorna.webp"
+  },
+  {
+   "id": "anas-platyrhynchos",
+   "numero": 4,
+   "nombre": "Ánade azulón",
+   "cientifico": "Anas platyrhynchos",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El pato más común. El macho tiene la cabeza verde brillante y collar blanco; la hembra es parda moteada. Vive en ríos, charcas, rías y parques.",
+   "imagen": "img/aves/anas-platyrhynchos.webp"
+  },
+  {
+   "id": "mareca-strepera",
+   "numero": 5,
+   "nombre": "Ánade friso",
+   "cientifico": "Mareca strepera",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato de tonos grises finamente vermiculados con el obispillo negro en el macho y un espejuelo blanco visible en vuelo. Invernante escaso en lagunas y embalses.",
+   "imagen": "img/aves/mareca-strepera.webp"
+  },
+  {
+   "id": "mareca-penelope",
+   "numero": 6,
+   "nombre": "Silbón europeo",
+   "cientifico": "Mareca penelope",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene la cabeza castaña con frente amarilla y emite un silbido característico. Inverna en estuarios y praderas costeras, a menudo en bandos.",
+   "imagen": "img/aves/mareca-penelope.webp"
+  },
+  {
+   "id": "anas-acuta",
+   "numero": 7,
+   "nombre": "Ánade rabudo",
+   "cientifico": "Anas acuta",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato esbelto de cuello largo; el macho tiene una larga cola apuntada y una línea blanca que sube por el cuello. Se ve en paso e invierno en rías y lagunas.",
+   "imagen": "img/aves/anas-acuta.webp"
+  },
+  {
+   "id": "spatula-clypeata",
+   "numero": 8,
+   "nombre": "Cuchara común",
+   "cientifico": "Spatula clypeata",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Inconfundible por su enorme pico en forma de cuchara con el que filtra el agua. El macho combina cabeza verde, pecho blanco y flancos castaños.",
+   "imagen": "img/aves/spatula-clypeata.webp"
+  },
+  {
+   "id": "spatula-querquedula",
+   "numero": 9,
+   "nombre": "Cerceta carretona",
+   "cientifico": "Spatula querquedula",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeño pato migrador; el macho muestra una ancha ceja blanca curvada. Se ve sobre todo en primavera de paso por humedales costeros.",
+   "imagen": "img/aves/spatula-querquedula.webp"
+  },
+  {
+   "id": "anas-crecca",
+   "numero": 10,
+   "nombre": "Cerceta común",
+   "cientifico": "Anas crecca",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El pato más pequeño de Europa. El macho tiene la cabeza castaña con una banda verde alrededor del ojo. Frecuente en invierno en rías y charcas.",
+   "imagen": "img/aves/anas-crecca.webp"
+  },
+  {
+   "id": "aythya-ferina",
+   "numero": 11,
+   "nombre": "Porrón europeo",
+   "cientifico": "Aythya ferina",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato buceador; el macho tiene cabeza rojiza, pecho negro y dorso gris claro. Inverna en embalses y lagunas del interior y la costa.",
+   "imagen": "img/aves/aythya-ferina.webp"
+  },
+  {
+   "id": "aythya-fuligula",
+   "numero": 12,
+   "nombre": "Porrón moñudo",
+   "cientifico": "Aythya fuligula",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato buceador negro y blanco con un moño colgante en la nuca y ojo amarillo. Invernante en embalses y lagunas.",
+   "imagen": "img/aves/aythya-fuligula.webp"
+  },
+  {
+   "id": "aythya-marila",
+   "numero": 13,
+   "nombre": "Porrón bastardo",
+   "cientifico": "Aythya marila",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Parecido al porrón moñudo pero con el dorso gris y sin moño. Escaso invernante en rías y en el mar cerca de la costa.",
+   "imagen": "img/aves/aythya-marila.webp"
+  },
+  {
+   "id": "somateria-mollissima",
+   "numero": 14,
+   "nombre": "Eider común",
+   "cientifico": "Somateria mollissima",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato marino robusto de pico en cuña. El macho es blanco y negro; la hembra, parda finamente barrada. Escaso en invierno en la costa.",
+   "imagen": "img/aves/somateria-mollissima.webp"
+  },
+  {
+   "id": "melanitta-nigra",
+   "numero": 15,
+   "nombre": "Negrón común",
+   "cientifico": "Melanitta nigra",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato marino; el macho es totalmente negro con una mancha amarilla en el pico. Pasa en bandos en fila sobre el mar en otoño e invierno.",
+   "imagen": "img/aves/melanitta-nigra.webp"
+  },
+  {
+   "id": "melanitta-fusca",
+   "numero": 16,
+   "nombre": "Negrón especulado",
+   "cientifico": "Melanitta fusca",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato marino negro con un espejo blanco en el ala muy visible en vuelo. Escaso en invierno, a veces mezclado con negrones comunes.",
+   "imagen": "img/aves/melanitta-fusca.webp"
+  },
+  {
+   "id": "bucephala-clangula",
+   "numero": 17,
+   "nombre": "Porrón osculado",
+   "cientifico": "Bucephala clangula",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato buceador de cabeza triangular; el macho es blanco con cabeza verde oscura y una mancha blanca junto al pico. Escaso invernante en rías.",
+   "imagen": "img/aves/bucephala-clangula.webp"
+  },
+  {
+   "id": "mergus-serrator",
+   "numero": 18,
+   "nombre": "Serreta mediana",
+   "cientifico": "Mergus serrator",
+   "familia": "Anatidae",
+   "grupo": "Patos y gansos",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pato buceador de pico fino y aserrado con cresta despeinada. Inverna en rías y en el mar junto a la costa.",
+   "imagen": "img/aves/mergus-serrator.webp"
+  },
+  {
+   "id": "tetrao-urogallus",
+   "numero": 19,
+   "nombre": "Urogallo cantábrico",
+   "cientifico": "Tetrao urogallus",
+   "familia": "Phasianidae",
+   "grupo": "Gallináceas",
+   "habitats": [
+    "Bosque",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "La gran gallinácea de los bosques cantábricos, hoy en peligro de extinción. El macho es negruzco con ceja roja y cola en abanico; la hembra, parda barrada.",
+   "imagen": "img/aves/tetrao-urogallus.webp"
+  },
+  {
+   "id": "perdix-perdix",
+   "numero": 20,
+   "nombre": "Perdiz pardilla",
+   "cientifico": "Perdix perdix",
+   "familia": "Phasianidae",
+   "grupo": "Gallináceas",
+   "habitats": [
+    "Alta montaña",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Perdiz pequeña de cara anaranjada y flancos barrados. Vive en brezales y piornales de alta montaña de la cordillera.",
+   "imagen": "img/aves/perdix-perdix.webp"
+  },
+  {
+   "id": "alectoris-rufa",
+   "numero": 21,
+   "nombre": "Perdiz roja",
+   "cientifico": "Alectoris rufa",
+   "familia": "Phasianidae",
+   "grupo": "Gallináceas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Perdiz de pico y patas rojas, babero blanco ribeteado de negro y flancos listados. Escasa en campiñas y laderas soleadas del interior.",
+   "imagen": "img/aves/alectoris-rufa.webp"
+  },
+  {
+   "id": "coturnix-coturnix",
+   "numero": 22,
+   "nombre": "Codorniz común",
+   "cientifico": "Coturnix coturnix",
+   "familia": "Phasianidae",
+   "grupo": "Gallináceas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeña gallinácea migradora, difícil de ver pero fácil de oír por su canto trisilábico en prados y mieses en verano.",
+   "imagen": "img/aves/coturnix-coturnix.webp"
+  },
+  {
+   "id": "phasianus-colchicus",
+   "numero": 23,
+   "nombre": "Faisán común",
+   "cientifico": "Phasianus colchicus",
+   "familia": "Phasianidae",
+   "grupo": "Gallináceas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Introducido para la caza. El macho tiene la cabeza verde con carúnculas rojas y una larga cola; la hembra es parda.",
+   "imagen": "img/aves/phasianus-colchicus.webp"
+  },
+  {
+   "id": "gavia-stellata",
+   "numero": 24,
+   "nombre": "Colimbo chico",
+   "cientifico": "Gavia stellata",
+   "familia": "Gaviidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El colimbo más pequeño, de pico fino y algo respingón. En invierno se ve en el mar cerca de la costa y en rías.",
+   "imagen": "img/aves/gavia-stellata.webp"
+  },
+  {
+   "id": "gavia-arctica",
+   "numero": 25,
+   "nombre": "Colimbo ártico",
+   "cientifico": "Gavia arctica",
+   "familia": "Gaviidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Colimbo mediano de cabeza redondeada. Escaso invernante en el mar cerca de la costa.",
+   "imagen": "img/aves/gavia-arctica.webp"
+  },
+  {
+   "id": "gavia-immer",
+   "numero": 26,
+   "nombre": "Colimbo grande",
+   "cientifico": "Gavia immer",
+   "familia": "Gaviidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El colimbo más grande, de pico robusto. Inverna en la costa cantábrica y se ve buceando en ensenadas y bocas de ría.",
+   "imagen": "img/aves/gavia-immer.webp"
+  },
+  {
+   "id": "fulmarus-glacialis",
+   "numero": 27,
+   "nombre": "Fulmar boreal",
+   "cientifico": "Fulmarus glacialis",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave marina parecida a una gaviota pero de vuelo planeado y alas rígidas, con un tubo nasal sobre el pico. Se ve en paso desde los cabos.",
+   "imagen": "img/aves/fulmarus-glacialis.webp"
+  },
+  {
+   "id": "calonectris-borealis",
+   "numero": 28,
+   "nombre": "Pardela cenicienta",
+   "cientifico": "Calonectris borealis",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pardela grande de pico amarillo que planea sobre las olas. Pasa en gran número frente a los cabos asturianos a final de verano y otoño.",
+   "imagen": "img/aves/calonectris-borealis.webp"
+  },
+  {
+   "id": "ardenna-gravis",
+   "numero": 29,
+   "nombre": "Pardela capirotada",
+   "cientifico": "Ardenna gravis",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pardela con un capirote oscuro bien definido y collar blanco. Se ve en paso otoñal, a veces en buenos números con vientos del noroeste.",
+   "imagen": "img/aves/ardenna-gravis.webp"
+  },
+  {
+   "id": "ardenna-grisea",
+   "numero": 30,
+   "nombre": "Pardela sombría",
+   "cientifico": "Ardenna grisea",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pardela oscura con la parte inferior de las alas plateada. Pasa en otoño desde el Atlántico sur y se ve desde los cabos.",
+   "imagen": "img/aves/ardenna-grisea.webp"
+  },
+  {
+   "id": "puffinus-puffinus",
+   "numero": 31,
+   "nombre": "Pardela pichoneta",
+   "cientifico": "Puffinus puffinus",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pardela pequeña de contraste nítido entre dorso negro y vientre blanco. Pasa rasante sobre el mar en primavera y otoño.",
+   "imagen": "img/aves/puffinus-puffinus.webp"
+  },
+  {
+   "id": "puffinus-mauretanicus",
+   "numero": 32,
+   "nombre": "Pardela balear",
+   "cientifico": "Puffinus mauretanicus",
+   "familia": "Procellariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pardela pequeña parda de vientre sucio, en peligro crítico. Frecuente en paso otoñal frente a la costa cantábrica.",
+   "imagen": "img/aves/puffinus-mauretanicus.webp"
+  },
+  {
+   "id": "hydrobates-pelagicus",
+   "numero": 33,
+   "nombre": "Paíño europeo",
+   "cientifico": "Hydrobates pelagicus",
+   "familia": "Hydrobatidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El ave marina más pequeña de Europa, negra con obispillo blanco. Cría en islotes de la costa asturiana y solo visita tierra de noche.",
+   "imagen": "img/aves/hydrobates-pelagicus.webp"
+  },
+  {
+   "id": "hydrobates-leucorhous",
+   "numero": 34,
+   "nombre": "Paíño de Leach",
+   "cientifico": "Hydrobates leucorhous",
+   "familia": "Hydrobatidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Paíño de cola ahorquillada y vuelo errático. Se ve desde la costa sobre todo tras temporales de otoño.",
+   "imagen": "img/aves/hydrobates-leucorhous.webp"
+  },
+  {
+   "id": "tachybaptus-ruficollis",
+   "numero": 35,
+   "nombre": "Zampullín común",
+   "cientifico": "Tachybaptus ruficollis",
+   "familia": "Podicipedidae",
+   "grupo": "Somormujos y zampullines",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeña ave buceadora redondeada que se zambulle a menudo. Vive en charcas, lagunas y ríos tranquilos.",
+   "imagen": "img/aves/tachybaptus-ruficollis.webp"
+  },
+  {
+   "id": "podiceps-cristatus",
+   "numero": 36,
+   "nombre": "Somormujo lavanco",
+   "cientifico": "Podiceps cristatus",
+   "familia": "Podicipedidae",
+   "grupo": "Somormujos y zampullines",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave buceadora elegante de cuello largo con cresta y golilla en época de cría. Se ve en embalses y en invierno en rías.",
+   "imagen": "img/aves/podiceps-cristatus.webp"
+  },
+  {
+   "id": "podiceps-nigricollis",
+   "numero": 37,
+   "nombre": "Zampullín cuellinegro",
+   "cientifico": "Podiceps nigricollis",
+   "familia": "Podicipedidae",
+   "grupo": "Somormujos y zampullines",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño zampullín de pico fino respingón y ojo rojo. Escaso en invierno en rías y puertos.",
+   "imagen": "img/aves/podiceps-nigricollis.webp"
+  },
+  {
+   "id": "ciconia-ciconia",
+   "numero": 38,
+   "nombre": "Cigüeña blanca",
+   "cientifico": "Ciconia ciconia",
+   "familia": "Ciconiidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Campiña y matorral",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gran ave blanca y negra de pico y patas rojas. Escasa reproductora en Asturias y más frecuente en paso migratorio.",
+   "imagen": "img/aves/ciconia-ciconia.webp"
+  },
+  {
+   "id": "ciconia-nigra",
+   "numero": 39,
+   "nombre": "Cigüeña negra",
+   "cientifico": "Ciconia nigra",
+   "familia": "Ciconiidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Cigüeña negra con brillo metálico y vientre blanco, muy esquiva. Se ve de paso en ríos y estuarios.",
+   "imagen": "img/aves/ciconia-nigra.webp"
+  },
+  {
+   "id": "platalea-leucorodia",
+   "numero": 40,
+   "nombre": "Espátula común",
+   "cientifico": "Platalea leucorodia",
+   "familia": "Threskiornithidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave blanca con un pico largo aplanado en forma de espátula. Para en los estuarios durante la migración y algunas invernan.",
+   "imagen": "img/aves/platalea-leucorodia.webp"
+  },
+  {
+   "id": "plegadis-falcinellus",
+   "numero": 41,
+   "nombre": "Morito común",
+   "cientifico": "Plegadis falcinellus",
+   "familia": "Threskiornithidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave oscura con brillos verdes y pico largo curvado hacia abajo. Cada vez más frecuente en humedales costeros.",
+   "imagen": "img/aves/plegadis-falcinellus.webp"
+  },
+  {
+   "id": "nycticorax-nycticorax",
+   "numero": 42,
+   "nombre": "Martinete común",
+   "cientifico": "Nycticorax nycticorax",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Garza robusta de cuello corto, dorso negro y alas grises, de hábitos crepusculares. Escasa de paso en ríos y estuarios.",
+   "imagen": "img/aves/nycticorax-nycticorax.webp"
+  },
+  {
+   "id": "bubulcus-ibis",
+   "numero": 43,
+   "nombre": "Garcilla bueyera",
+   "cientifico": "Bubulcus ibis",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Campiña y matorral",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeña garza blanca que sigue al ganado en los prados para cazar insectos. Muy extendida en la campiña costera.",
+   "imagen": "img/aves/bubulcus-ibis.webp"
+  },
+  {
+   "id": "ardea-cinerea",
+   "numero": 44,
+   "nombre": "Garza real",
+   "cientifico": "Ardea cinerea",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La garza grande y gris de ríos, rías y charcas. Caza inmóvil al acecho y vuela con el cuello recogido.",
+   "imagen": "img/aves/ardea-cinerea.webp"
+  },
+  {
+   "id": "ardea-purpurea",
+   "numero": 45,
+   "nombre": "Garza imperial",
+   "cientifico": "Ardea purpurea",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Garza esbelta de tonos rojizos y cuello con listas negras. Escasa de paso en humedales costeros.",
+   "imagen": "img/aves/ardea-purpurea.webp"
+  },
+  {
+   "id": "ardea-alba",
+   "numero": 46,
+   "nombre": "Garceta grande",
+   "cientifico": "Ardea alba",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Garza blanca tan grande como la garza real, de pico amarillo en invierno. Cada vez más común en los estuarios.",
+   "imagen": "img/aves/ardea-alba.webp"
+  },
+  {
+   "id": "egretta-garzetta",
+   "numero": 47,
+   "nombre": "Garceta común",
+   "cientifico": "Egretta garzetta",
+   "familia": "Ardeidae",
+   "grupo": "Garzas, cigüeñas y espátulas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Garza blanca mediana de pico negro y \"zapatillas\" amarillas. Frecuente en rías y estuarios.",
+   "imagen": "img/aves/egretta-garzetta.webp"
+  },
+  {
+   "id": "morus-bassanus",
+   "numero": 48,
+   "nombre": "Alcatraz atlántico",
+   "cientifico": "Morus bassanus",
+   "familia": "Sulidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La mayor ave marina del Cantábrico, blanca con puntas de las alas negras y cabeza teñida de amarillo. Se lanza en picado al mar para pescar; se ve desde cualquier cabo.",
+   "imagen": "img/aves/morus-bassanus.webp"
+  },
+  {
+   "id": "phalacrocorax-carbo",
+   "numero": 49,
+   "nombre": "Cormorán grande",
+   "cientifico": "Phalacrocorax carbo",
+   "familia": "Phalacrocoracidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave marina grande y oscura que nada muy hundida y seca las alas abiertas. Inverna en rías, puertos y embalses.",
+   "imagen": "img/aves/phalacrocorax-carbo.webp"
+  },
+  {
+   "id": "gulosus-aristotelis",
+   "numero": 50,
+   "nombre": "Cormorán moñudo",
+   "cientifico": "Gulosus aristotelis",
+   "familia": "Phalacrocoracidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Cormorán más pequeño y verdoso, con un moño en época de cría. Cría en los acantilados y es exclusivamente marino.",
+   "imagen": "img/aves/gulosus-aristotelis.webp"
+  },
+  {
+   "id": "pernis-apivorus",
+   "numero": 51,
+   "nombre": "Abejero europeo",
+   "cientifico": "Pernis apivorus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Rapaz de cabeza pequeña, parecida a un busardo, que se alimenta de avispas y abejas. Estival en bosques y campiña.",
+   "imagen": "img/aves/pernis-apivorus.webp"
+  },
+  {
+   "id": "milvus-migrans",
+   "numero": 52,
+   "nombre": "Milano negro",
+   "cientifico": "Milvus migrans",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz oscura de cola ligeramente ahorquillada. Llega en primavera y es común cerca de ríos, vertederos y pueblos.",
+   "imagen": "img/aves/milvus-migrans.webp"
+  },
+  {
+   "id": "milvus-milvus",
+   "numero": 53,
+   "nombre": "Milano real",
+   "cientifico": "Milvus milvus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Invernante",
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz rojiza elegante de cola muy ahorquillada y cabeza blanquecina. Escasa, más frecuente en invierno en el sur de la región.",
+   "imagen": "img/aves/milvus-milvus.webp"
+  },
+  {
+   "id": "gypaetus-barbatus",
+   "numero": 54,
+   "nombre": "Quebrantahuesos",
+   "cientifico": "Gypaetus barbatus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Enorme buitre de cola en cuña que se alimenta de huesos. Reintroducido en los Picos de Europa, donde ya se le puede ver.",
+   "imagen": "img/aves/gypaetus-barbatus.webp"
+  },
+  {
+   "id": "neophron-percnopterus",
+   "numero": 55,
+   "nombre": "Alimoche común",
+   "cientifico": "Neophron percnopterus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Alta montaña",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño buitre blanco y negro de cara amarilla. Estival en zonas de roquedo y cortados del interior.",
+   "imagen": "img/aves/neophron-percnopterus.webp"
+  },
+  {
+   "id": "gyps-fulvus",
+   "numero": 56,
+   "nombre": "Buitre leonado",
+   "cientifico": "Gyps fulvus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Alta montaña",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gran buitre pardo de cabeza blanca que planea en grupos. Habitual en los Picos de Europa y las sierras del oriente.",
+   "imagen": "img/aves/gyps-fulvus.webp"
+  },
+  {
+   "id": "circaetus-gallicus",
+   "numero": 57,
+   "nombre": "Culebrera europea",
+   "cientifico": "Circaetus gallicus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Águila de vientre blanco y cabeza grande que se cierne en el aire para cazar culebras. Estival en laderas soleadas.",
+   "imagen": "img/aves/circaetus-gallicus.webp"
+  },
+  {
+   "id": "circus-aeruginosus",
+   "numero": 58,
+   "nombre": "Aguilucho lagunero occidental",
+   "cientifico": "Circus aeruginosus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Rapaz de vuelo bajo con las alas en V sobre carrizales. Se ve sobre todo de paso en los humedales costeros.",
+   "imagen": "img/aves/circus-aeruginosus.webp"
+  },
+  {
+   "id": "circus-cyaneus",
+   "numero": 59,
+   "nombre": "Aguilucho pálido",
+   "cientifico": "Circus cyaneus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho es gris perla con puntas de las alas negras; la hembra es parda con obispillo blanco. Caza en vuelo bajo sobre brezales.",
+   "imagen": "img/aves/circus-cyaneus.webp"
+  },
+  {
+   "id": "circus-pygargus",
+   "numero": 60,
+   "nombre": "Aguilucho cenizo",
+   "cientifico": "Circus pygargus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Aguilucho esbelto de alas estrechas. Estival escaso en brezales y piornales de montaña.",
+   "imagen": "img/aves/circus-pygargus.webp"
+  },
+  {
+   "id": "accipiter-gentilis",
+   "numero": 61,
+   "nombre": "Azor común",
+   "cientifico": "Accipiter gentilis",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz forestal potente de ceja blanca y ojo naranja. Caza por sorpresa entre los árboles; difícil de ver.",
+   "imagen": "img/aves/accipiter-gentilis.webp"
+  },
+  {
+   "id": "accipiter-nisus",
+   "numero": 62,
+   "nombre": "Gavilán común",
+   "cientifico": "Accipiter nisus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeña rapaz de alas cortas y cola larga que caza pájaros. El macho tiene el pecho barrado de naranja; la hembra, de gris.",
+   "imagen": "img/aves/accipiter-nisus.webp"
+  },
+  {
+   "id": "buteo-buteo",
+   "numero": 63,
+   "nombre": "Busardo ratonero",
+   "cientifico": "Buteo buteo",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La rapaz más común de Asturias. Se posa en postes y árboles junto a carreteras y planea en círculos maullando.",
+   "imagen": "img/aves/buteo-buteo.webp"
+  },
+  {
+   "id": "aquila-chrysaetos",
+   "numero": 64,
+   "nombre": "Águila real",
+   "cientifico": "Aquila chrysaetos",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gran águila oscura de nuca dorada. Vive en las zonas más agrestes de la cordillera y los Picos de Europa.",
+   "imagen": "img/aves/aquila-chrysaetos.webp"
+  },
+  {
+   "id": "hieraaetus-pennatus",
+   "numero": 65,
+   "nombre": "Aguililla calzada",
+   "cientifico": "Hieraaetus pennatus",
+   "familia": "Accipitridae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeña águila con una forma clara y otra oscura. Estival en zonas de bosque y campiña.",
+   "imagen": "img/aves/hieraaetus-pennatus.webp"
+  },
+  {
+   "id": "pandion-haliaetus",
+   "numero": 66,
+   "nombre": "Águila pescadora",
+   "cientifico": "Pandion haliaetus",
+   "familia": "Pandionidae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz blanca y parda especializada en pescar lanzándose al agua. Se ve en paso en estuarios y embalses.",
+   "imagen": "img/aves/pandion-haliaetus.webp"
+  },
+  {
+   "id": "falco-tinnunculus",
+   "numero": 67,
+   "nombre": "Cernícalo vulgar",
+   "cientifico": "Falco tinnunculus",
+   "familia": "Falconidae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeño halcón que se cierne en el aire sobre prados y taludes. El macho tiene la cabeza gris; la hembra es toda rojiza.",
+   "imagen": "img/aves/falco-tinnunculus.webp"
+  },
+  {
+   "id": "falco-columbarius",
+   "numero": 68,
+   "nombre": "Esmerejón",
+   "cientifico": "Falco columbarius",
+   "familia": "Falconidae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El halcón más pequeño, de vuelo rápido y bajo. Invernante escaso en campiñas y zonas costeras abiertas.",
+   "imagen": "img/aves/falco-columbarius.webp"
+  },
+  {
+   "id": "falco-subbuteo",
+   "numero": 69,
+   "nombre": "Alcotán europeo",
+   "cientifico": "Falco subbuteo",
+   "familia": "Falconidae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Halcón elegante de \"bigotes\" y \"calzones\" rojizos que caza libélulas y golondrinas al vuelo. Estival.",
+   "imagen": "img/aves/falco-subbuteo.webp"
+  },
+  {
+   "id": "falco-peregrinus",
+   "numero": 70,
+   "nombre": "Halcón peregrino",
+   "cientifico": "Falco peregrinus",
+   "familia": "Falconidae",
+   "grupo": "Rapaces diurnas",
+   "habitats": [
+    "Costa",
+    "Alta montaña",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El ave más rápida del mundo en picado. Cría en acantilados costeros y cortados de montaña, y a veces en edificios.",
+   "imagen": "img/aves/falco-peregrinus.webp"
+  },
+  {
+   "id": "rallus-aquaticus",
+   "numero": 71,
+   "nombre": "Rascón europeo",
+   "cientifico": "Rallus aquaticus",
+   "familia": "Rallidae",
+   "grupo": "Rascones, fochas y grullas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave de carrizal de pico largo y rojo, más fácil de oír (con sus gruñidos) que de ver.",
+   "imagen": "img/aves/rallus-aquaticus.webp"
+  },
+  {
+   "id": "gallinula-chloropus",
+   "numero": 72,
+   "nombre": "Gallineta común",
+   "cientifico": "Gallinula chloropus",
+   "familia": "Rallidae",
+   "grupo": "Rascones, fochas y grullas",
+   "habitats": [
+    "Humedales y ríos",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave negruzca de pico rojo con punta amarilla que mueve la cola al nadar. Común en charcas, ríos y parques.",
+   "imagen": "img/aves/gallinula-chloropus.webp"
+  },
+  {
+   "id": "fulica-atra",
+   "numero": 73,
+   "nombre": "Focha común",
+   "cientifico": "Fulica atra",
+   "familia": "Rallidae",
+   "grupo": "Rascones, fochas y grullas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave acuática negra con un escudo frontal blanco. Frecuente en lagunas y embalses, sobre todo en invierno.",
+   "imagen": "img/aves/fulica-atra.webp"
+  },
+  {
+   "id": "grus-grus",
+   "numero": 74,
+   "nombre": "Grulla común",
+   "cientifico": "Grus grus",
+   "familia": "Gruidae",
+   "grupo": "Rascones, fochas y grullas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gran ave gris de cuello largo que migra en bandos en forma de V con un sonoro \"gru-gru\". Se ve pasar en otoño y febrero.",
+   "imagen": "img/aves/grus-grus.webp"
+  },
+  {
+   "id": "haematopus-ostralegus",
+   "numero": 75,
+   "nombre": "Ostrero euroasiático",
+   "cientifico": "Haematopus ostralegus",
+   "familia": "Haematopodidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola blanco y negro con pico largo naranja y patas rosadas. Inverna en playas rocosas y estuarios.",
+   "imagen": "img/aves/haematopus-ostralegus.webp"
+  },
+  {
+   "id": "himantopus-himantopus",
+   "numero": 76,
+   "nombre": "Cigüeñuela común",
+   "cientifico": "Himantopus himantopus",
+   "familia": "Recurvirostridae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Limícola blanco y negro con patas rosas larguísimas. Escasa de paso en humedales costeros.",
+   "imagen": "img/aves/himantopus-himantopus.webp"
+  },
+  {
+   "id": "recurvirostra-avosetta",
+   "numero": 77,
+   "nombre": "Avoceta común",
+   "cientifico": "Recurvirostra avosetta",
+   "familia": "Recurvirostridae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola blanco y negro con un fino pico curvado hacia arriba. Escasa en estuarios en paso e invierno.",
+   "imagen": "img/aves/recurvirostra-avosetta.webp"
+  },
+  {
+   "id": "vanellus-vanellus",
+   "numero": 78,
+   "nombre": "Avefría europea",
+   "cientifico": "Vanellus vanellus",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola de dorso verde metálico y moño fino. Inverna en bandos en prados encharcados.",
+   "imagen": "img/aves/vanellus-vanellus.webp"
+  },
+  {
+   "id": "pluvialis-apricaria",
+   "numero": 79,
+   "nombre": "Chorlito dorado europeo",
+   "cientifico": "Pluvialis apricaria",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola de dorso moteado de dorado. Inverna en bandos en prados y campos abiertos cercanos a la costa.",
+   "imagen": "img/aves/pluvialis-apricaria.webp"
+  },
+  {
+   "id": "pluvialis-squatarola",
+   "numero": 80,
+   "nombre": "Chorlito gris",
+   "cientifico": "Pluvialis squatarola",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola grisáceo moteado con axilas negras visibles en vuelo. Inverna en estuarios y playas.",
+   "imagen": "img/aves/pluvialis-squatarola.webp"
+  },
+  {
+   "id": "charadrius-hiaticula",
+   "numero": 81,
+   "nombre": "Chorlitejo grande",
+   "cientifico": "Charadrius hiaticula",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño limícola de collar negro y pico naranja con punta negra. Frecuente en playas en paso e invierno.",
+   "imagen": "img/aves/charadrius-hiaticula.webp"
+  },
+  {
+   "id": "charadrius-dubius",
+   "numero": 82,
+   "nombre": "Chorlitejo chico",
+   "cientifico": "Charadrius dubius",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño chorlitejo con anillo ocular amarillo. Cría escaso en graveras de ríos.",
+   "imagen": "img/aves/charadrius-dubius.webp"
+  },
+  {
+   "id": "charadrius-alexandrinus",
+   "numero": 83,
+   "nombre": "Chorlitejo patinegro",
+   "cientifico": "Charadrius alexandrinus",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Chorlitejo pálido de patas oscuras y collar incompleto. Cría en muy pocas playas y es muy sensible a las molestias.",
+   "imagen": "img/aves/charadrius-alexandrinus.webp"
+  },
+  {
+   "id": "charadrius-morinellus",
+   "numero": 84,
+   "nombre": "Chorlito carambolo",
+   "cientifico": "Charadrius morinellus",
+   "familia": "Charadriidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Chorlito de ceja blanca que hace paradas en las cumbres de la cordillera durante su migración de finales de verano.",
+   "imagen": "img/aves/charadrius-morinellus.webp"
+  },
+  {
+   "id": "numenius-phaeopus",
+   "numero": 85,
+   "nombre": "Zarapito trinador",
+   "cientifico": "Numenius phaeopus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola grande de pico curvo y listas en la cabeza. Se oye su trino de siete notas en paso por rías y costas rocosas.",
+   "imagen": "img/aves/numenius-phaeopus.webp"
+  },
+  {
+   "id": "numenius-arquata",
+   "numero": 86,
+   "nombre": "Zarapito real",
+   "cientifico": "Numenius arquata",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El limícola más grande, de pico larguísimo y curvado. Inverna en estuarios y playas.",
+   "imagen": "img/aves/numenius-arquata.webp"
+  },
+  {
+   "id": "limosa-lapponica",
+   "numero": 87,
+   "nombre": "Aguja colipinta",
+   "cientifico": "Limosa lapponica",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola de pico largo algo curvado hacia arriba. Frecuente en los estuarios en paso e invierno.",
+   "imagen": "img/aves/limosa-lapponica.webp"
+  },
+  {
+   "id": "limosa-limosa",
+   "numero": 88,
+   "nombre": "Aguja colinegra",
+   "cientifico": "Limosa limosa",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola elegante de pico recto y cola negra con obispillo blanco. De paso en humedales costeros.",
+   "imagen": "img/aves/limosa-limosa.webp"
+  },
+  {
+   "id": "arenaria-interpres",
+   "numero": 89,
+   "nombre": "Vuelvepiedras común",
+   "cientifico": "Arenaria interpres",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño limícola rechoncho que da la vuelta a piedras y algas buscando comida. Común en costas rocosas y puertos.",
+   "imagen": "img/aves/arenaria-interpres.webp"
+  },
+  {
+   "id": "calidris-canutus",
+   "numero": 90,
+   "nombre": "Correlimos gordo",
+   "cientifico": "Calidris canutus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Correlimos robusto, gris en invierno y rojizo en verano. De paso en estuarios y playas.",
+   "imagen": "img/aves/calidris-canutus.webp"
+  },
+  {
+   "id": "calidris-pugnax",
+   "numero": 91,
+   "nombre": "Combatiente",
+   "cientifico": "Calidris pugnax",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Limícola de patas largas; los machos en primavera lucen gorgueras de colores. De paso en humedales costeros.",
+   "imagen": "img/aves/calidris-pugnax.webp"
+  },
+  {
+   "id": "calidris-ferruginea",
+   "numero": 92,
+   "nombre": "Correlimos zarapitín",
+   "cientifico": "Calidris ferruginea",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Correlimos de pico largo y curvado, con obispillo blanco. De paso sobre todo a finales de verano.",
+   "imagen": "img/aves/calidris-ferruginea.webp"
+  },
+  {
+   "id": "calidris-alba",
+   "numero": 93,
+   "nombre": "Correlimos tridáctilo",
+   "cientifico": "Calidris alba",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño correlimos muy blanco que corre por la orilla siguiendo las olas. Común en invierno en las playas.",
+   "imagen": "img/aves/calidris-alba.webp"
+  },
+  {
+   "id": "calidris-alpina",
+   "numero": 94,
+   "nombre": "Correlimos común",
+   "cientifico": "Calidris alpina",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El correlimos más abundante, de pico algo curvado. Forma bandos en estuarios en invierno.",
+   "imagen": "img/aves/calidris-alpina.webp"
+  },
+  {
+   "id": "calidris-maritima",
+   "numero": 95,
+   "nombre": "Correlimos oscuro",
+   "cientifico": "Calidris maritima",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Correlimos oscuro y rechoncho de patas amarillas. Inverna en rocas batidas por las olas y escolleras.",
+   "imagen": "img/aves/calidris-maritima.webp"
+  },
+  {
+   "id": "calidris-minuta",
+   "numero": 96,
+   "nombre": "Correlimos menudo",
+   "cientifico": "Calidris minuta",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El correlimos más pequeño, con una V clara en el dorso. De paso en estuarios.",
+   "imagen": "img/aves/calidris-minuta.webp"
+  },
+  {
+   "id": "scolopax-rusticola",
+   "numero": 97,
+   "nombre": "Becada",
+   "cientifico": "Scolopax rusticola",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Invernante",
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola forestal de pico larguísimo y plumaje de hojarasca, muy difícil de ver. Abundante en invierno en bosques.",
+   "imagen": "img/aves/scolopax-rusticola.webp"
+  },
+  {
+   "id": "lymnocryptes-minimus",
+   "numero": 98,
+   "nombre": "Agachadiza chica",
+   "cientifico": "Lymnocryptes minimus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Agachadiza pequeña y discreta que se agacha hasta que casi la pisas. Escasa invernante en zonas encharcadas.",
+   "imagen": "img/aves/lymnocryptes-minimus.webp"
+  },
+  {
+   "id": "gallinago-gallinago",
+   "numero": 99,
+   "nombre": "Agachadiza común",
+   "cientifico": "Gallinago gallinago",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola de pico muy largo y cabeza listada que sale volando en zigzag. Inverna en prados húmedos y juncales.",
+   "imagen": "img/aves/gallinago-gallinago.webp"
+  },
+  {
+   "id": "actitis-hypoleucos",
+   "numero": 100,
+   "nombre": "Andarríos chico",
+   "cientifico": "Actitis hypoleucos",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño limícola que balancea la cola sin parar y vuela rasante sobre el agua. Frecuente en ríos y rías.",
+   "imagen": "img/aves/actitis-hypoleucos.webp"
+  },
+  {
+   "id": "tringa-ochropus",
+   "numero": 101,
+   "nombre": "Andarríos grande",
+   "cientifico": "Tringa ochropus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola oscuro de obispillo blanco muy visible al volar. De paso e invierno en ríos y charcas.",
+   "imagen": "img/aves/tringa-ochropus.webp"
+  },
+  {
+   "id": "tringa-erythropus",
+   "numero": 102,
+   "nombre": "Archibebe oscuro",
+   "cientifico": "Tringa erythropus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Archibebe de patas rojas y pico fino, casi negro en verano. Escaso de paso en estuarios.",
+   "imagen": "img/aves/tringa-erythropus.webp"
+  },
+  {
+   "id": "tringa-nebularia",
+   "numero": 103,
+   "nombre": "Archibebe claro",
+   "cientifico": "Tringa nebularia",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Archibebe grande y pálido de patas verdosas. Frecuente en estuarios en paso e invierno.",
+   "imagen": "img/aves/tringa-nebularia.webp"
+  },
+  {
+   "id": "tringa-totanus",
+   "numero": 104,
+   "nombre": "Archibebe común",
+   "cientifico": "Tringa totanus",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Limícola pardo de patas rojas que da la alarma con gritos nerviosos. Frecuente en estuarios.",
+   "imagen": "img/aves/tringa-totanus.webp"
+  },
+  {
+   "id": "tringa-glareola",
+   "numero": 105,
+   "nombre": "Andarríos bastardo",
+   "cientifico": "Tringa glareola",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Andarríos elegante de dorso moteado y ceja clara. De paso en humedales.",
+   "imagen": "img/aves/tringa-glareola.webp"
+  },
+  {
+   "id": "phalaropus-fulicarius",
+   "numero": 106,
+   "nombre": "Falaropo picogrueso",
+   "cientifico": "Phalaropus fulicarius",
+   "familia": "Scolopacidae",
+   "grupo": "Limícolas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño limícola que vive en el mar y nada girando. Se ve desde la costa sobre todo tras temporales de otoño.",
+   "imagen": "img/aves/phalaropus-fulicarius.webp"
+  },
+  {
+   "id": "stercorarius-skua",
+   "numero": 107,
+   "nombre": "Págalo grande",
+   "cientifico": "Stercorarius skua",
+   "familia": "Stercorariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave marina robusta y oscura con manchas blancas en las alas que persigue a otras aves para robarles la comida.",
+   "imagen": "img/aves/stercorarius-skua.webp"
+  },
+  {
+   "id": "stercorarius-pomarinus",
+   "numero": 108,
+   "nombre": "Págalo pomarino",
+   "cientifico": "Stercorarius pomarinus",
+   "familia": "Stercorariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Págalo mediano; los adultos tienen las plumas centrales de la cola retorcidas en cuchara. De paso frente a los cabos.",
+   "imagen": "img/aves/stercorarius-pomarinus.webp"
+  },
+  {
+   "id": "stercorarius-parasiticus",
+   "numero": 109,
+   "nombre": "Págalo parásito",
+   "cientifico": "Stercorarius parasiticus",
+   "familia": "Stercorariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El págalo más frecuente, ágil perseguidor de charranes y gaviotas. De paso en otoño y primavera.",
+   "imagen": "img/aves/stercorarius-parasiticus.webp"
+  },
+  {
+   "id": "stercorarius-longicaudus",
+   "numero": 110,
+   "nombre": "Págalo rabero",
+   "cientifico": "Stercorarius longicaudus",
+   "familia": "Stercorariidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El págalo más fino y elegante, con largas plumas centrales en la cola. Escaso de paso.",
+   "imagen": "img/aves/stercorarius-longicaudus.webp"
+  },
+  {
+   "id": "fratercula-arctica",
+   "numero": 111,
+   "nombre": "Frailecillo atlántico",
+   "cientifico": "Fratercula arctica",
+   "familia": "Alcidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El famoso \"loro de mar\" de pico colorido en verano. Pasa el invierno en alta mar y se ve a veces desde la costa.",
+   "imagen": "img/aves/fratercula-arctica.webp"
+  },
+  {
+   "id": "alca-torda",
+   "numero": 112,
+   "nombre": "Alca común",
+   "cientifico": "Alca torda",
+   "familia": "Alcidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave marina blanca y negra de pico grueso y aplanado. Inverna en el mar y se ve desde cabos y puertos.",
+   "imagen": "img/aves/alca-torda.webp"
+  },
+  {
+   "id": "uria-aalge",
+   "numero": 113,
+   "nombre": "Arao común",
+   "cientifico": "Uria aalge",
+   "familia": "Alcidae",
+   "grupo": "Aves marinas",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave marina parecida al alca pero de pico fino y puntiagudo. Inverna en el Cantábrico.",
+   "imagen": "img/aves/uria-aalge.webp"
+  },
+  {
+   "id": "rissa-tridactyla",
+   "numero": 114,
+   "nombre": "Gaviota tridáctila",
+   "cientifico": "Rissa tridactyla",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota marina pequeña de puntas de las alas negras \"mojadas en tinta\". De paso e invierno, sobre todo con temporales.",
+   "imagen": "img/aves/rissa-tridactyla.webp"
+  },
+  {
+   "id": "xema-sabini",
+   "numero": 115,
+   "nombre": "Gaviota de Sabine",
+   "cientifico": "Xema sabini",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeña gaviota de alas con un dibujo tricolor muy llamativo. Escasa de paso otoñal en el mar.",
+   "imagen": "img/aves/xema-sabini.webp"
+  },
+  {
+   "id": "chroicocephalus-ridibundus",
+   "numero": 116,
+   "nombre": "Gaviota reidora",
+   "cientifico": "Chroicocephalus ridibundus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Humedales y ríos",
+    "Costa",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota pequeña que en verano tiene la cabeza chocolate. Muy común en invierno en rías, puertos y ciudades.",
+   "imagen": "img/aves/chroicocephalus-ridibundus.webp"
+  },
+  {
+   "id": "hydrocoloeus-minutus",
+   "numero": 117,
+   "nombre": "Gaviota enana",
+   "cientifico": "Hydrocoloeus minutus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La gaviota más pequeña del mundo, de vuelo de charrán. De paso en el mar.",
+   "imagen": "img/aves/hydrocoloeus-minutus.webp"
+  },
+  {
+   "id": "ichthyaetus-melanocephalus",
+   "numero": 118,
+   "nombre": "Gaviota cabecinegra",
+   "cientifico": "Ichthyaetus melanocephalus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota de alas blanquísimas sin puntas negras y pico rojo robusto. Inverna en playas y puertos.",
+   "imagen": "img/aves/ichthyaetus-melanocephalus.webp"
+  },
+  {
+   "id": "larus-canus",
+   "numero": 119,
+   "nombre": "Gaviota cana",
+   "cientifico": "Larus canus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota mediana de pico fino amarillo verdoso y ojo oscuro. Escasa invernante en playas y prados costeros.",
+   "imagen": "img/aves/larus-canus.webp"
+  },
+  {
+   "id": "larus-delawarensis",
+   "numero": 120,
+   "nombre": "Gaviota de Delaware",
+   "cientifico": "Larus delawarensis",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota americana con un anillo negro en el pico. Rareza que se ha vuelto habitual en invierno en la costa de Gijón.",
+   "imagen": "img/aves/larus-delawarensis.webp"
+  },
+  {
+   "id": "larus-fuscus",
+   "numero": 121,
+   "nombre": "Gaviota sombría",
+   "cientifico": "Larus fuscus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Invernante",
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota grande de dorso gris oscuro y patas amarillas. Abundante en invierno en playas y puertos.",
+   "imagen": "img/aves/larus-fuscus.webp"
+  },
+  {
+   "id": "larus-argentatus",
+   "numero": 122,
+   "nombre": "Gaviota argéntea europea",
+   "cientifico": "Larus argentatus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gaviota grande de dorso gris claro y patas rosadas. Invernante en la costa.",
+   "imagen": "img/aves/larus-argentatus.webp"
+  },
+  {
+   "id": "larus-michahellis",
+   "numero": 123,
+   "nombre": "Gaviota patiamarilla",
+   "cientifico": "Larus michahellis",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa",
+    "Mar abierto",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La gaviota grande que vive todo el año en Asturias, de dorso gris y patas amarillas. Cría en acantilados y tejados.",
+   "imagen": "img/aves/larus-michahellis.webp"
+  },
+  {
+   "id": "larus-marinus",
+   "numero": 124,
+   "nombre": "Gavión atlántico",
+   "cientifico": "Larus marinus",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La gaviota más grande del mundo, de dorso negro y pico muy robusto. Invernante en la costa.",
+   "imagen": "img/aves/larus-marinus.webp"
+  },
+  {
+   "id": "sternula-albifrons",
+   "numero": 125,
+   "nombre": "Charrancito común",
+   "cientifico": "Sternula albifrons",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El charrán más pequeño, de frente blanca y pico amarillo. Escaso de paso por la costa.",
+   "imagen": "img/aves/sternula-albifrons.webp"
+  },
+  {
+   "id": "chlidonias-niger",
+   "numero": 126,
+   "nombre": "Fumarel común",
+   "cientifico": "Chlidonias niger",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño charrán oscuro de vuelo ligero. De paso sobre el mar y humedales costeros a final de verano.",
+   "imagen": "img/aves/chlidonias-niger.webp"
+  },
+  {
+   "id": "thalasseus-sandvicensis",
+   "numero": 127,
+   "nombre": "Charrán patinegro",
+   "cientifico": "Thalasseus sandvicensis",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Charrán grande de pico negro con punta amarilla y moño despeinado. Frecuente de paso y algunos invernan.",
+   "imagen": "img/aves/thalasseus-sandvicensis.webp"
+  },
+  {
+   "id": "sterna-hirundo",
+   "numero": 128,
+   "nombre": "Charrán común",
+   "cientifico": "Sterna hirundo",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto",
+    "Costa"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Charrán de pico rojo con punta negra que se lanza al agua a pescar. De paso por la costa.",
+   "imagen": "img/aves/sterna-hirundo.webp"
+  },
+  {
+   "id": "sterna-paradisaea",
+   "numero": 129,
+   "nombre": "Charrán ártico",
+   "cientifico": "Sterna paradisaea",
+   "familia": "Laridae",
+   "grupo": "Gaviotas y charranes",
+   "habitats": [
+    "Mar abierto"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Charrán de pico todo rojo y patas cortas, el ave con la migración más larga del mundo. De paso en el mar.",
+   "imagen": "img/aves/sterna-paradisaea.webp"
+  },
+  {
+   "id": "columba-livia",
+   "numero": 130,
+   "nombre": "Paloma bravía",
+   "cientifico": "Columba livia",
+   "familia": "Columbidae",
+   "grupo": "Palomas y tórtolas",
+   "habitats": [
+    "Pueblos y ciudades",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Antepasada de las palomas domésticas. Las de ciudad son sus descendientes asilvestradas; las silvestres anidan en acantilados.",
+   "imagen": "img/aves/columba-livia.webp"
+  },
+  {
+   "id": "columba-oenas",
+   "numero": 131,
+   "nombre": "Paloma zurita",
+   "cientifico": "Columba oenas",
+   "familia": "Columbidae",
+   "grupo": "Palomas y tórtolas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "De paso",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Paloma gris azulada sin manchas blancas en cuello ni alas. De paso e invierno en campiñas.",
+   "imagen": "img/aves/columba-oenas.webp"
+  },
+  {
+   "id": "columba-palumbus",
+   "numero": 132,
+   "nombre": "Paloma torcaz",
+   "cientifico": "Columba palumbus",
+   "familia": "Columbidae",
+   "grupo": "Palomas y tórtolas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "La paloma grande de cuello con mancha blanca y banda blanca en las alas. Común en bosques, campiña y parques.",
+   "imagen": "img/aves/columba-palumbus.webp"
+  },
+  {
+   "id": "streptopelia-turtur",
+   "numero": 133,
+   "nombre": "Tórtola europea",
+   "cientifico": "Streptopelia turtur",
+   "familia": "Columbidae",
+   "grupo": "Palomas y tórtolas",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeña tórtola de dorso escamado anaranjado y ronroneo característico. Estival en declive.",
+   "imagen": "img/aves/streptopelia-turtur.webp"
+  },
+  {
+   "id": "streptopelia-decaocto",
+   "numero": 134,
+   "nombre": "Tórtola turca",
+   "cientifico": "Streptopelia decaocto",
+   "familia": "Columbidae",
+   "grupo": "Palomas y tórtolas",
+   "habitats": [
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Tórtola clara con un collar negro en la nuca. Muy común en pueblos y ciudades.",
+   "imagen": "img/aves/streptopelia-decaocto.webp"
+  },
+  {
+   "id": "cuculus-canorus",
+   "numero": 135,
+   "nombre": "Cuco común",
+   "cientifico": "Cuculus canorus",
+   "familia": "Cuculidae",
+   "grupo": "Cucos",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave grisácea que parece un gavilán y pone sus huevos en nidos de otras aves. Su \"cu-cú\" anuncia la primavera.",
+   "imagen": "img/aves/cuculus-canorus.webp"
+  },
+  {
+   "id": "tyto-alba",
+   "numero": 136,
+   "nombre": "Lechuza común",
+   "cientifico": "Tyto alba",
+   "familia": "Tytonidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz nocturna de disco facial blanco en forma de corazón. Vive en hórreos, iglesias y casas abandonadas.",
+   "imagen": "img/aves/tyto-alba.webp"
+  },
+  {
+   "id": "otus-scops",
+   "numero": 137,
+   "nombre": "Autillo europeo",
+   "cientifico": "Otus scops",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño búho con orejas que emite un silbido monótono en las noches de verano.",
+   "imagen": "img/aves/otus-scops.webp"
+  },
+  {
+   "id": "bubo-bubo",
+   "numero": 138,
+   "nombre": "Búho real",
+   "cientifico": "Bubo bubo",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Alta montaña",
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El búho más grande de Europa, de ojos naranjas y grandes \"orejas\". Vive en cortados rocosos.",
+   "imagen": "img/aves/bubo-bubo.webp"
+  },
+  {
+   "id": "athene-noctua",
+   "numero": 139,
+   "nombre": "Mochuelo europeo",
+   "cientifico": "Athene noctua",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño búho de ojos amarillos y cara de enfado que se deja ver de día en postes y muros.",
+   "imagen": "img/aves/athene-noctua.webp"
+  },
+  {
+   "id": "strix-aluco",
+   "numero": 140,
+   "nombre": "Cárabo común",
+   "cientifico": "Strix aluco",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Rapaz nocturna redonda y sin orejas, autora del clásico ulular nocturno. Común en bosques y parques.",
+   "imagen": "img/aves/strix-aluco.webp"
+  },
+  {
+   "id": "asio-otus",
+   "numero": 141,
+   "nombre": "Búho chico",
+   "cientifico": "Asio otus",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Búho esbelto de ojos naranjas y largas \"orejas\". Vive en bosquetes y setos de campiña.",
+   "imagen": "img/aves/asio-otus.webp"
+  },
+  {
+   "id": "asio-flammeus",
+   "numero": 142,
+   "nombre": "Búho campestre",
+   "cientifico": "Asio flammeus",
+   "familia": "Strigidae",
+   "grupo": "Rapaces nocturnas",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Búho de ojos amarillos que caza de día en zonas abiertas. Escaso invernante en campiñas y costas.",
+   "imagen": "img/aves/asio-flammeus.webp"
+  },
+  {
+   "id": "caprimulgus-europaeus",
+   "numero": 143,
+   "nombre": "Chotacabras europeo",
+   "cientifico": "Caprimulgus europaeus",
+   "familia": "Caprimulgidae",
+   "grupo": "Vencejos y chotacabras",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Ave nocturna de plumaje críptico que caza insectos en vuelo; su canto es un ronroneo continuo. El macho tiene manchas blancas en alas y cola.",
+   "imagen": "img/aves/caprimulgus-europaeus.webp"
+  },
+  {
+   "id": "apus-apus",
+   "numero": 144,
+   "nombre": "Vencejo común",
+   "cientifico": "Apus apus",
+   "familia": "Apodidae",
+   "grupo": "Vencejos y chotacabras",
+   "habitats": [
+    "Pueblos y ciudades",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave negruzca de alas en forma de hoz que pasa casi toda su vida volando. Llena de chillidos los cielos urbanos en verano.",
+   "imagen": "img/aves/apus-apus.webp"
+  },
+  {
+   "id": "apus-pallidus",
+   "numero": 145,
+   "nombre": "Vencejo pálido",
+   "cientifico": "Apus pallidus",
+   "familia": "Apodidae",
+   "grupo": "Vencejos y chotacabras",
+   "habitats": [
+    "Pueblos y ciudades",
+    "Costa"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Muy parecido al vencejo común pero algo más pardo y pálido. Escaso en edificios y acantilados costeros.",
+   "imagen": "img/aves/apus-pallidus.webp"
+  },
+  {
+   "id": "tachymarptis-melba",
+   "numero": 146,
+   "nombre": "Vencejo real",
+   "cientifico": "Tachymarptis melba",
+   "familia": "Apodidae",
+   "grupo": "Vencejos y chotacabras",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Vencejo grande de vientre blanco. Cría en cortados de montaña y acantilados.",
+   "imagen": "img/aves/tachymarptis-melba.webp"
+  },
+  {
+   "id": "alcedo-atthis",
+   "numero": 147,
+   "nombre": "Martín pescador común",
+   "cientifico": "Alcedo atthis",
+   "familia": "Alcedinidae",
+   "grupo": "Martín pescador, abubilla y abejaruco",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Joya azul y naranja que pesca zambulléndose desde una rama. La hembra tiene la base del pico inferior naranja.",
+   "imagen": "img/aves/alcedo-atthis.webp"
+  },
+  {
+   "id": "merops-apiaster",
+   "numero": 148,
+   "nombre": "Abejaruco europeo",
+   "cientifico": "Merops apiaster",
+   "familia": "Meropidae",
+   "grupo": "Martín pescador, abubilla y abejaruco",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "De paso",
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Ave multicolor que caza abejas al vuelo. Pasa en bandos ruidosos y cría en contados taludes.",
+   "imagen": "img/aves/merops-apiaster.webp"
+  },
+  {
+   "id": "upupa-epops",
+   "numero": 149,
+   "nombre": "Abubilla común",
+   "cientifico": "Upupa epops",
+   "familia": "Upupidae",
+   "grupo": "Martín pescador, abubilla y abejaruco",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Inconfundible por su cresta en abanico y plumaje anaranjado con alas a rayas. Estival en campiñas soleadas.",
+   "imagen": "img/aves/upupa-epops.webp"
+  },
+  {
+   "id": "jynx-torquilla",
+   "numero": 150,
+   "nombre": "Torcecuello euroasiático",
+   "cientifico": "Jynx torquilla",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro carpintero atípico, pardo y críptico, que gira el cuello como una serpiente si se le molesta.",
+   "imagen": "img/aves/jynx-torquilla.webp"
+  },
+  {
+   "id": "picus-sharpei",
+   "numero": 151,
+   "nombre": "Pito real ibérico",
+   "cientifico": "Picus sharpei",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro carpintero verde de píleo rojo con una risa sonora. El macho tiene la bigotera roja.",
+   "imagen": "img/aves/picus-sharpei.webp"
+  },
+  {
+   "id": "dryocopus-martius",
+   "numero": 152,
+   "nombre": "Picamaderos negro",
+   "cientifico": "Dryocopus martius",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El pájaro carpintero más grande de Europa, negro con píleo rojo. Vive en hayedos maduros de la cordillera.",
+   "imagen": "img/aves/dryocopus-martius.webp"
+  },
+  {
+   "id": "dendrocopos-major",
+   "numero": 153,
+   "nombre": "Pico picapinos",
+   "cientifico": "Dendrocopos major",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro carpintero blanco y negro con zona anal roja. El macho tiene una mancha roja en la nuca. Tamborilea en primavera.",
+   "imagen": "img/aves/dendrocopos-major.webp"
+  },
+  {
+   "id": "dendrocoptes-medius",
+   "numero": 154,
+   "nombre": "Pico mediano",
+   "cientifico": "Dendrocoptes medius",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro carpintero de píleo rojo en ambos sexos. Asturias tiene importantes poblaciones en robledales viejos.",
+   "imagen": "img/aves/dendrocoptes-medius.webp"
+  },
+  {
+   "id": "dryobates-minor",
+   "numero": 155,
+   "nombre": "Pico menor",
+   "cientifico": "Dryobates minor",
+   "familia": "Picidae",
+   "grupo": "Pájaros carpinteros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El pájaro carpintero más pequeño, del tamaño de un gorrión. Se mueve por las ramas finas de la copa.",
+   "imagen": "img/aves/dryobates-minor.webp"
+  },
+  {
+   "id": "lullula-arborea",
+   "numero": 156,
+   "nombre": "Alondra totovía",
+   "cientifico": "Lullula arborea",
+   "familia": "Alaudidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Alondra pequeña de cola corta y ceja marcada con un canto melancólico. Vive en brezales y claros.",
+   "imagen": "img/aves/lullula-arborea.webp"
+  },
+  {
+   "id": "alauda-arvensis",
+   "numero": 157,
+   "nombre": "Alondra común",
+   "cientifico": "Alauda arvensis",
+   "familia": "Alaudidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Alondra parda con una cresta corta que canta sin parar mientras sube en vuelo. Vive en pastos de montaña y campos abiertos.",
+   "imagen": "img/aves/alauda-arvensis.webp"
+  },
+  {
+   "id": "galerida-cristata",
+   "numero": 158,
+   "nombre": "Cogujada común",
+   "cientifico": "Galerida cristata",
+   "familia": "Alaudidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Alondra con una cresta puntiaguda muy marcada. Escasa en terrenos abiertos y descampados.",
+   "imagen": "img/aves/galerida-cristata.webp"
+  },
+  {
+   "id": "riparia-riparia",
+   "numero": 159,
+   "nombre": "Avión zapador",
+   "cientifico": "Riparia riparia",
+   "familia": "Hirundinidae",
+   "grupo": "Golondrinas y aviones",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El avión más pequeño, pardo con un collar oscuro. De paso sobre ríos y humedales.",
+   "imagen": "img/aves/riparia-riparia.webp"
+  },
+  {
+   "id": "ptyonoprogne-rupestris",
+   "numero": 160,
+   "nombre": "Avión roquero",
+   "cientifico": "Ptyonoprogne rupestris",
+   "familia": "Hirundinidae",
+   "grupo": "Golondrinas y aviones",
+   "habitats": [
+    "Alta montaña",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Avión pardo que vive todo el año en roquedos de montaña y acantilados.",
+   "imagen": "img/aves/ptyonoprogne-rupestris.webp"
+  },
+  {
+   "id": "hirundo-rustica",
+   "numero": 161,
+   "nombre": "Golondrina común",
+   "cientifico": "Hirundo rustica",
+   "familia": "Hirundinidae",
+   "grupo": "Golondrinas y aviones",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Golondrina de cola larga ahorquillada y garganta roja. Anida en cuadras y hórreos.",
+   "imagen": "img/aves/hirundo-rustica.webp"
+  },
+  {
+   "id": "delichon-urbicum",
+   "numero": 162,
+   "nombre": "Avión común",
+   "cientifico": "Delichon urbicum",
+   "familia": "Hirundinidae",
+   "grupo": "Golondrinas y aviones",
+   "habitats": [
+    "Pueblos y ciudades",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Avión negro azulado de obispillo blanco que construye nidos de barro bajo los aleros.",
+   "imagen": "img/aves/delichon-urbicum.webp"
+  },
+  {
+   "id": "cecropis-daurica",
+   "numero": 163,
+   "nombre": "Golondrina dáurica",
+   "cientifico": "Cecropis daurica",
+   "familia": "Hirundinidae",
+   "grupo": "Golondrinas y aviones",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Golondrina de obispillo y nuca anaranjados. Escasa estival que nidifica bajo puentes.",
+   "imagen": "img/aves/cecropis-daurica.webp"
+  },
+  {
+   "id": "anthus-campestris",
+   "numero": 164,
+   "nombre": "Bisbita campestre",
+   "cientifico": "Anthus campestris",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Bisbita pálido y alargado de pastizales secos de montaña. Estival escaso.",
+   "imagen": "img/aves/anthus-campestris.webp"
+  },
+  {
+   "id": "anthus-trivialis",
+   "numero": 165,
+   "nombre": "Bisbita arbóreo",
+   "cientifico": "Anthus trivialis",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Bisbita que canta en vuelo en paracaídas desde la copa de un árbol. Estival en bordes de bosque.",
+   "imagen": "img/aves/anthus-trivialis.webp"
+  },
+  {
+   "id": "anthus-pratensis",
+   "numero": 166,
+   "nombre": "Bisbita pratense",
+   "cientifico": "Anthus pratensis",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño bisbita pardo listado. Muy abundante en invierno en prados y zonas costeras.",
+   "imagen": "img/aves/anthus-pratensis.webp"
+  },
+  {
+   "id": "anthus-spinoletta",
+   "numero": 167,
+   "nombre": "Bisbita alpino",
+   "cientifico": "Anthus spinoletta",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Alta montaña",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Bisbita de alta montaña en verano que baja a riberas y costas en invierno.",
+   "imagen": "img/aves/anthus-spinoletta.webp"
+  },
+  {
+   "id": "anthus-petrosus",
+   "numero": 168,
+   "nombre": "Bisbita costero",
+   "cientifico": "Anthus petrosus",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Costa"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Bisbita oscuro de patas negras que vive entre las rocas de la costa.",
+   "imagen": "img/aves/anthus-petrosus.webp"
+  },
+  {
+   "id": "motacilla-flava",
+   "numero": 169,
+   "nombre": "Lavandera boyera",
+   "cientifico": "Motacilla flava",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral",
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Lavandera de vientre amarillo intenso que acompaña al ganado. El macho tiene la cabeza gris azulada.",
+   "imagen": "img/aves/motacilla-flava.webp"
+  },
+  {
+   "id": "motacilla-cinerea",
+   "numero": 170,
+   "nombre": "Lavandera cascadeña",
+   "cientifico": "Motacilla cinerea",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Lavandera de cola muy larga con vientre amarillo y dorso gris. Vive en ríos y arroyos; el macho tiene la garganta negra.",
+   "imagen": "img/aves/motacilla-cinerea.webp"
+  },
+  {
+   "id": "motacilla-alba",
+   "numero": 171,
+   "nombre": "Lavandera blanca",
+   "cientifico": "Motacilla alba",
+   "familia": "Motacillidae",
+   "grupo": "Alondras, bisbitas y lavanderas",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Lavandera blanca y negra que mueve sin parar la cola. Muy común en pueblos, prados y playas.",
+   "imagen": "img/aves/motacilla-alba.webp"
+  },
+  {
+   "id": "cinclus-cinclus",
+   "numero": 172,
+   "nombre": "Mirlo acuático europeo",
+   "cientifico": "Cinclus cinclus",
+   "familia": "Cinclidae",
+   "grupo": "Chochín, acentores y mirlo acuático",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro rechoncho de pechera blanca que bucea y camina bajo el agua en ríos de montaña.",
+   "imagen": "img/aves/cinclus-cinclus.webp"
+  },
+  {
+   "id": "troglodytes-troglodytes",
+   "numero": 173,
+   "nombre": "Chochín común",
+   "cientifico": "Troglodytes troglodytes",
+   "familia": "Troglodytidae",
+   "grupo": "Chochín, acentores y mirlo acuático",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pajarillo diminuto de cola levantada con un canto potentísimo para su tamaño.",
+   "imagen": "img/aves/troglodytes-troglodytes.webp"
+  },
+  {
+   "id": "prunella-modularis",
+   "numero": 174,
+   "nombre": "Acentor común",
+   "cientifico": "Prunella modularis",
+   "familia": "Prunellidae",
+   "grupo": "Chochín, acentores y mirlo acuático",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro discreto de cabeza y pecho grises que se mueve como un ratón por el suelo.",
+   "imagen": "img/aves/prunella-modularis.webp"
+  },
+  {
+   "id": "prunella-collaris",
+   "numero": 175,
+   "nombre": "Acentor alpino",
+   "cientifico": "Prunella collaris",
+   "familia": "Prunellidae",
+   "grupo": "Chochín, acentores y mirlo acuático",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Acentor grande de flancos rojizos que vive en las cumbres. Confiado con los montañeros.",
+   "imagen": "img/aves/prunella-collaris.webp"
+  },
+  {
+   "id": "erithacus-rubecula",
+   "numero": 176,
+   "nombre": "Petirrojo europeo",
+   "cientifico": "Erithacus rubecula",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El pajarillo de pecho naranja que te acompaña en el huerto. Muy común todo el año.",
+   "imagen": "img/aves/erithacus-rubecula.webp"
+  },
+  {
+   "id": "luscinia-megarhynchos",
+   "numero": 177,
+   "nombre": "Ruiseñor común",
+   "cientifico": "Luscinia megarhynchos",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Campiña y matorral",
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro pardo de cola rojiza, famoso por su canto, incluso de noche. Estival en sotos y setos.",
+   "imagen": "img/aves/luscinia-megarhynchos.webp"
+  },
+  {
+   "id": "luscinia-svecica",
+   "numero": 178,
+   "nombre": "Pechiazul",
+   "cientifico": "Luscinia svecica",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro de carrizal; el macho lleva una pechera azul con una mancha central. De paso en humedales.",
+   "imagen": "img/aves/luscinia-svecica.webp"
+  },
+  {
+   "id": "phoenicurus-ochruros",
+   "numero": 179,
+   "nombre": "Colirrojo tizón",
+   "cientifico": "Phoenicurus ochruros",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Alta montaña",
+    "Pueblos y ciudades",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro oscuro de cola rojiza que tiembla. El macho es negro hollín. Común en tejados y roquedos.",
+   "imagen": "img/aves/phoenicurus-ochruros.webp"
+  },
+  {
+   "id": "phoenicurus-phoenicurus",
+   "numero": 180,
+   "nombre": "Colirrojo real",
+   "cientifico": "Phoenicurus phoenicurus",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "De paso",
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho combina pecho naranja, frente blanca y garganta negra. De paso y escaso reproductor.",
+   "imagen": "img/aves/phoenicurus-phoenicurus.webp"
+  },
+  {
+   "id": "saxicola-rubetra",
+   "numero": 181,
+   "nombre": "Tarabilla norteña",
+   "cientifico": "Saxicola rubetra",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Tarabilla con una ceja blanca marcada. Estival en prados de siega de montaña.",
+   "imagen": "img/aves/saxicola-rubetra.webp"
+  },
+  {
+   "id": "saxicola-rubicola",
+   "numero": 182,
+   "nombre": "Tarabilla europea",
+   "cientifico": "Saxicola rubicola",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro que se posa en lo alto de los arbustos; el macho tiene la cabeza negra y el pecho naranja.",
+   "imagen": "img/aves/saxicola-rubicola.webp"
+  },
+  {
+   "id": "oenanthe-oenanthe",
+   "numero": 183,
+   "nombre": "Collalba gris",
+   "cientifico": "Oenanthe oenanthe",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Alta montaña",
+    "Costa"
+   ],
+   "estatus": [
+    "Estival",
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro de obispillo blanco y cola con una T negra. Estival en pastos de alta montaña.",
+   "imagen": "img/aves/oenanthe-oenanthe.webp"
+  },
+  {
+   "id": "monticola-saxatilis",
+   "numero": 184,
+   "nombre": "Roquero rojo",
+   "cientifico": "Monticola saxatilis",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene la cabeza azul y el pecho naranja. Estival en roquedos de alta montaña.",
+   "imagen": "img/aves/monticola-saxatilis.webp"
+  },
+  {
+   "id": "monticola-solitarius",
+   "numero": 185,
+   "nombre": "Roquero solitario",
+   "cientifico": "Monticola solitarius",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Costa",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho es azul oscuro. Vive en acantilados costeros y cortados rocosos.",
+   "imagen": "img/aves/monticola-solitarius.webp"
+  },
+  {
+   "id": "turdus-torquatus",
+   "numero": 186,
+   "nombre": "Mirlo capiblanco",
+   "cientifico": "Turdus torquatus",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Mirlo con una media luna blanca en el pecho. Estival en el límite superior del bosque.",
+   "imagen": "img/aves/turdus-torquatus.webp"
+  },
+  {
+   "id": "turdus-merula",
+   "numero": 187,
+   "nombre": "Mirlo común",
+   "cientifico": "Turdus merula",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho es negro con el pico amarillo; la hembra, parda. Común en jardines y bosques.",
+   "imagen": "img/aves/turdus-merula.webp"
+  },
+  {
+   "id": "turdus-pilaris",
+   "numero": 188,
+   "nombre": "Zorzal real",
+   "cientifico": "Turdus pilaris",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Zorzal grande de cabeza y obispillo grises. Invernante en bandos en prados.",
+   "imagen": "img/aves/turdus-pilaris.webp"
+  },
+  {
+   "id": "turdus-philomelos",
+   "numero": 189,
+   "nombre": "Zorzal común",
+   "cientifico": "Turdus philomelos",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Zorzal pardo de pecho moteado que rompe caracoles contra las piedras.",
+   "imagen": "img/aves/turdus-philomelos.webp"
+  },
+  {
+   "id": "turdus-iliacus",
+   "numero": 190,
+   "nombre": "Zorzal alirrojo",
+   "cientifico": "Turdus iliacus",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Zorzal pequeño de ceja blanca y flancos rojizos. Invernante en bandos.",
+   "imagen": "img/aves/turdus-iliacus.webp"
+  },
+  {
+   "id": "turdus-viscivorus",
+   "numero": 191,
+   "nombre": "Zorzal charlo",
+   "cientifico": "Turdus viscivorus",
+   "familia": "Turdidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El zorzal más grande, de pecho muy moteado. Vive en bosques claros y pastos de montaña.",
+   "imagen": "img/aves/turdus-viscivorus.webp"
+  },
+  {
+   "id": "cettia-cetti",
+   "numero": 192,
+   "nombre": "Cetia ruiseñor",
+   "cientifico": "Cettia cetti",
+   "familia": "Cettiidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro pardo muy escondizo que lanza estrofas explosivas desde la vegetación de ribera.",
+   "imagen": "img/aves/cettia-cetti.webp"
+  },
+  {
+   "id": "cisticola-juncidis",
+   "numero": 193,
+   "nombre": "Buitrón",
+   "cientifico": "Cisticola juncidis",
+   "familia": "Cisticolidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Diminuto pájaro listado que canta \"tsip-tsip\" en vuelo ondulado sobre prados y juncales.",
+   "imagen": "img/aves/cisticola-juncidis.webp"
+  },
+  {
+   "id": "locustella-naevia",
+   "numero": 194,
+   "nombre": "Buscarla pintoja",
+   "cientifico": "Locustella naevia",
+   "familia": "Locustellidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro muy escondido cuyo canto parece el de un saltamontes. Estival en matorrales húmedos.",
+   "imagen": "img/aves/locustella-naevia.webp"
+  },
+  {
+   "id": "acrocephalus-schoenobaenus",
+   "numero": 195,
+   "nombre": "Carricerín común",
+   "cientifico": "Acrocephalus schoenobaenus",
+   "familia": "Acrocephalidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro de carrizal con una ceja clara muy marcada. De paso en humedales.",
+   "imagen": "img/aves/acrocephalus-schoenobaenus.webp"
+  },
+  {
+   "id": "acrocephalus-scirpaceus",
+   "numero": 196,
+   "nombre": "Carricero común",
+   "cientifico": "Acrocephalus scirpaceus",
+   "familia": "Acrocephalidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro pardo de carrizal de canto repetitivo. Estival en carrizales costeros.",
+   "imagen": "img/aves/acrocephalus-scirpaceus.webp"
+  },
+  {
+   "id": "hippolais-polyglotta",
+   "numero": 197,
+   "nombre": "Zarcero políglota",
+   "cientifico": "Hippolais polyglotta",
+   "familia": "Acrocephalidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro amarillento de canto parlanchín. Estival en setos y zarzales.",
+   "imagen": "img/aves/hippolais-polyglotta.webp"
+  },
+  {
+   "id": "curruca-undata",
+   "numero": 198,
+   "nombre": "Curruca rabilarga",
+   "cientifico": "Curruca undata",
+   "familia": "Sylviidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Curruca de cola larga, dorso gris y pecho vinoso. Vive en tojales y brezales.",
+   "imagen": "img/aves/curruca-undata.webp"
+  },
+  {
+   "id": "curruca-communis",
+   "numero": 199,
+   "nombre": "Curruca zarcera",
+   "cientifico": "Curruca communis",
+   "familia": "Sylviidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Curruca de ala rojiza y garganta blanca. Estival en setos y matorrales.",
+   "imagen": "img/aves/curruca-communis.webp"
+  },
+  {
+   "id": "sylvia-borin",
+   "numero": 200,
+   "nombre": "Curruca mosquitera",
+   "cientifico": "Sylvia borin",
+   "familia": "Sylviidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Curruca parda sin marcas con un canto muy rico. Estival en sotos y bosques.",
+   "imagen": "img/aves/sylvia-borin.webp"
+  },
+  {
+   "id": "sylvia-atricapilla",
+   "numero": 201,
+   "nombre": "Curruca capirotada",
+   "cientifico": "Sylvia atricapilla",
+   "familia": "Sylviidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene un capirote negro y la hembra, marrón. Muy común en bosques y jardines.",
+   "imagen": "img/aves/sylvia-atricapilla.webp"
+  },
+  {
+   "id": "phylloscopus-bonelli",
+   "numero": 202,
+   "nombre": "Mosquitero papialbo",
+   "cientifico": "Phylloscopus bonelli",
+   "familia": "Phylloscopidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Mosquitero pálido de obispillo amarillento. Estival en robledales y pinares.",
+   "imagen": "img/aves/phylloscopus-bonelli.webp"
+  },
+  {
+   "id": "phylloscopus-sibilatrix",
+   "numero": 203,
+   "nombre": "Mosquitero silbador",
+   "cientifico": "Phylloscopus sibilatrix",
+   "familia": "Phylloscopidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Mosquitero de garganta amarilla y vientre blanco. De paso en bosques.",
+   "imagen": "img/aves/phylloscopus-sibilatrix.webp"
+  },
+  {
+   "id": "phylloscopus-collybita",
+   "numero": 204,
+   "nombre": "Mosquitero común",
+   "cientifico": "Phylloscopus collybita",
+   "familia": "Phylloscopidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño pájaro verdoso que canta \"chif-chaf\". Muy común en invierno.",
+   "imagen": "img/aves/phylloscopus-collybita.webp"
+  },
+  {
+   "id": "phylloscopus-ibericus",
+   "numero": 205,
+   "nombre": "Mosquitero ibérico",
+   "cientifico": "Phylloscopus ibericus",
+   "familia": "Phylloscopidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Casi idéntico al mosquitero común pero con otro canto. Estival en bosques de ribera.",
+   "imagen": "img/aves/phylloscopus-ibericus.webp"
+  },
+  {
+   "id": "phylloscopus-trochilus",
+   "numero": 206,
+   "nombre": "Mosquitero musical",
+   "cientifico": "Phylloscopus trochilus",
+   "familia": "Phylloscopidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Mosquitero de canto descendente. De paso en primavera y otoño.",
+   "imagen": "img/aves/phylloscopus-trochilus.webp"
+  },
+  {
+   "id": "regulus-regulus",
+   "numero": 207,
+   "nombre": "Reyezuelo sencillo",
+   "cientifico": "Regulus regulus",
+   "familia": "Regulidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El ave más pequeña de Europa, con una cresta amarilla. Vive en pinares y abetales.",
+   "imagen": "img/aves/regulus-regulus.webp"
+  },
+  {
+   "id": "regulus-ignicapilla",
+   "numero": 208,
+   "nombre": "Reyezuelo listado",
+   "cientifico": "Regulus ignicapilla",
+   "familia": "Regulidae",
+   "grupo": "Currucas, mosquiteros y carriceros",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Diminuto pájaro con una ceja blanca y cresta naranja. Común en bosques y parques.",
+   "imagen": "img/aves/regulus-ignicapilla.webp"
+  },
+  {
+   "id": "muscicapa-striata",
+   "numero": 209,
+   "nombre": "Papamoscas gris",
+   "cientifico": "Muscicapa striata",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro grisáceo que sale desde una rama a cazar insectos y vuelve al mismo sitio.",
+   "imagen": "img/aves/muscicapa-striata.webp"
+  },
+  {
+   "id": "ficedula-hypoleuca",
+   "numero": 210,
+   "nombre": "Papamoscas cerrojillo",
+   "cientifico": "Ficedula hypoleuca",
+   "familia": "Muscicapidae",
+   "grupo": "Petirrojos, mirlos y zorzales",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "De paso"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho es blanco y negro y la hembra, parda. De paso en bosques y parques.",
+   "imagen": "img/aves/ficedula-hypoleuca.webp"
+  },
+  {
+   "id": "aegithalos-caudatus",
+   "numero": 211,
+   "nombre": "Mito común",
+   "cientifico": "Aegithalos caudatus",
+   "familia": "Aegithalidae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Bolita de plumas con una cola larguísima. Se mueve en grupos ruidosos por los bosques.",
+   "imagen": "img/aves/aegithalos-caudatus.webp"
+  },
+  {
+   "id": "lophophanes-cristatus",
+   "numero": 212,
+   "nombre": "Herrerillo capuchino",
+   "cientifico": "Lophophanes cristatus",
+   "familia": "Paridae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pequeño párido con una cresta puntiaguda blanca y negra. Vive en pinares.",
+   "imagen": "img/aves/lophophanes-cristatus.webp"
+  },
+  {
+   "id": "poecile-palustris",
+   "numero": 213,
+   "nombre": "Carbonero palustre",
+   "cientifico": "Poecile palustris",
+   "familia": "Paridae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Párido de capirote negro brillante y babero pequeño. Vive en bosques caducifolios.",
+   "imagen": "img/aves/poecile-palustris.webp"
+  },
+  {
+   "id": "periparus-ater",
+   "numero": 214,
+   "nombre": "Carbonero garrapinos",
+   "cientifico": "Periparus ater",
+   "familia": "Paridae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El párido más pequeño, con una mancha blanca en la nuca. Común en pinares y bosques mixtos.",
+   "imagen": "img/aves/periparus-ater.webp"
+  },
+  {
+   "id": "cyanistes-caeruleus",
+   "numero": 215,
+   "nombre": "Herrerillo común",
+   "cientifico": "Cyanistes caeruleus",
+   "familia": "Paridae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Párido azul y amarillo muy acrobático. Común en bosques y jardines.",
+   "imagen": "img/aves/cyanistes-caeruleus.webp"
+  },
+  {
+   "id": "parus-major",
+   "numero": 216,
+   "nombre": "Carbonero común",
+   "cientifico": "Parus major",
+   "familia": "Paridae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El párido más grande, de vientre amarillo con una corbata negra, más ancha en el macho.",
+   "imagen": "img/aves/parus-major.webp"
+  },
+  {
+   "id": "sitta-europaea",
+   "numero": 217,
+   "nombre": "Trepador azul",
+   "cientifico": "Sitta europaea",
+   "familia": "Sittidae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro azul grisáceo con antifaz negro que baja por los troncos cabeza abajo.",
+   "imagen": "img/aves/sitta-europaea.webp"
+  },
+  {
+   "id": "tichodroma-muraria",
+   "numero": 218,
+   "nombre": "Treparriscos",
+   "cientifico": "Tichodroma muraria",
+   "familia": "Tichodromidae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pájaro gris con alas rojas que trepa por paredes de roca. Joya de los Picos de Europa.",
+   "imagen": "img/aves/tichodroma-muraria.webp"
+  },
+  {
+   "id": "certhia-brachydactyla",
+   "numero": 219,
+   "nombre": "Agateador europeo",
+   "cientifico": "Certhia brachydactyla",
+   "familia": "Certhiidae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro pardo de pico curvo que trepa por los troncos en espiral.",
+   "imagen": "img/aves/certhia-brachydactyla.webp"
+  },
+  {
+   "id": "certhia-familiaris",
+   "numero": 220,
+   "nombre": "Agateador euroasiático",
+   "cientifico": "Certhia familiaris",
+   "familia": "Certhiidae",
+   "grupo": "Carboneros, herrerillos y trepadores",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Muy parecido al agateador europeo pero de bosques de montaña como hayedos.",
+   "imagen": "img/aves/certhia-familiaris.webp"
+  },
+  {
+   "id": "oriolus-oriolus",
+   "numero": 221,
+   "nombre": "Oropéndola europea",
+   "cientifico": "Oriolus oriolus",
+   "familia": "Oriolidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho es amarillo intenso con alas negras. Se oye su silbido aflautado en sotos en verano.",
+   "imagen": "img/aves/oriolus-oriolus.webp"
+  },
+  {
+   "id": "lanius-collurio",
+   "numero": 222,
+   "nombre": "Alcaudón dorsirrojo",
+   "cientifico": "Lanius collurio",
+   "familia": "Laniidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Estival"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene antifaz negro y dorso castaño. Ensarta sus presas en espinos. Estival en setos de montaña.",
+   "imagen": "img/aves/lanius-collurio.webp"
+  },
+  {
+   "id": "garrulus-glandarius",
+   "numero": 223,
+   "nombre": "Arrendajo euroasiático",
+   "cientifico": "Garrulus glandarius",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Córvido rosado con una mancha azul en el ala. Entierra bellotas y avisa a gritos de cualquier intruso.",
+   "imagen": "img/aves/garrulus-glandarius.webp"
+  },
+  {
+   "id": "pica-pica",
+   "numero": 224,
+   "nombre": "Urraca común",
+   "cientifico": "Pica pica",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Córvido blanco y negro de cola larga y metálica. Común en campiña y ciudades.",
+   "imagen": "img/aves/pica-pica.webp"
+  },
+  {
+   "id": "pyrrhocorax-graculus",
+   "numero": 225,
+   "nombre": "Chova piquigualda",
+   "cientifico": "Pyrrhocorax graculus",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Córvido negro de pico amarillo que vive en las cumbres y se acerca a los montañeros.",
+   "imagen": "img/aves/pyrrhocorax-graculus.webp"
+  },
+  {
+   "id": "pyrrhocorax-pyrrhocorax",
+   "numero": 226,
+   "nombre": "Chova piquirroja",
+   "cientifico": "Pyrrhocorax pyrrhocorax",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Alta montaña",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Córvido negro de pico y patas rojos. Vive en montañas y acantilados costeros.",
+   "imagen": "img/aves/pyrrhocorax-pyrrhocorax.webp"
+  },
+  {
+   "id": "coloeus-monedula",
+   "numero": 227,
+   "nombre": "Grajilla occidental",
+   "cientifico": "Coloeus monedula",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Pueblos y ciudades",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Córvido pequeño de nuca gris y ojo claro. Cría en edificios y acantilados.",
+   "imagen": "img/aves/coloeus-monedula.webp"
+  },
+  {
+   "id": "corvus-corone",
+   "numero": 228,
+   "nombre": "Corneja negra",
+   "cientifico": "Corvus corone",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El córvido negro más común de Asturias. Frecuente en prados, playas y ciudades.",
+   "imagen": "img/aves/corvus-corone.webp"
+  },
+  {
+   "id": "corvus-corax",
+   "numero": 229,
+   "nombre": "Cuervo grande",
+   "cientifico": "Corvus corax",
+   "familia": "Corvidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Alta montaña",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "El córvido más grande, de cola en cuña y voz grave. Vive en montaña y acantilados.",
+   "imagen": "img/aves/corvus-corax.webp"
+  },
+  {
+   "id": "sturnus-vulgaris",
+   "numero": 230,
+   "nombre": "Estornino pinto",
+   "cientifico": "Sturnus vulgaris",
+   "familia": "Sturnidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente",
+    "Invernante"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Estornino con el plumaje moteado de blanco en invierno. Forma enormes bandos en invierno.",
+   "imagen": "img/aves/sturnus-vulgaris.webp"
+  },
+  {
+   "id": "sturnus-unicolor",
+   "numero": 231,
+   "nombre": "Estornino negro",
+   "cientifico": "Sturnus unicolor",
+   "familia": "Sturnidae",
+   "grupo": "Córvidos, estorninos y alcaudones",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Estornino negro sin motas en verano, muy buen imitador de otros sonidos.",
+   "imagen": "img/aves/sturnus-unicolor.webp"
+  },
+  {
+   "id": "passer-domesticus",
+   "numero": 232,
+   "nombre": "Gorrión común",
+   "cientifico": "Passer domesticus",
+   "familia": "Passeridae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El gorrión de los pueblos y ciudades. El macho tiene el píleo gris y el babero negro.",
+   "imagen": "img/aves/passer-domesticus.webp"
+  },
+  {
+   "id": "passer-montanus",
+   "numero": 233,
+   "nombre": "Gorrión molinero",
+   "cientifico": "Passer montanus",
+   "familia": "Passeridae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gorrión de píleo castaño y una mancha negra en la mejilla. Vive en la campiña.",
+   "imagen": "img/aves/passer-montanus.webp"
+  },
+  {
+   "id": "petronia-petronia",
+   "numero": 234,
+   "nombre": "Gorrión chillón",
+   "cientifico": "Petronia petronia",
+   "familia": "Passeridae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Gorrión pardo listado con una mancha amarilla en la garganta. Vive en roquedos y pueblos de montaña.",
+   "imagen": "img/aves/petronia-petronia.webp"
+  },
+  {
+   "id": "montifringilla-nivalis",
+   "numero": 235,
+   "nombre": "Gorrión alpino",
+   "cientifico": "Montifringilla nivalis",
+   "familia": "Passeridae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Pájaro de alta montaña con grandes manchas blancas en las alas. Vive en las cumbres de los Picos de Europa.",
+   "imagen": "img/aves/montifringilla-nivalis.webp"
+  },
+  {
+   "id": "fringilla-coelebs",
+   "numero": 236,
+   "nombre": "Pinzón vulgar",
+   "cientifico": "Fringilla coelebs",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque",
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene pecho rosado y cabeza gris azulada. Uno de los pájaros más comunes.",
+   "imagen": "img/aves/fringilla-coelebs.webp"
+  },
+  {
+   "id": "fringilla-montifringilla",
+   "numero": 237,
+   "nombre": "Pinzón real",
+   "cientifico": "Fringilla montifringilla",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pinzón de pecho anaranjado y obispillo blanco. Invernante, a veces en grandes bandos en hayedos.",
+   "imagen": "img/aves/fringilla-montifringilla.webp"
+  },
+  {
+   "id": "coccothraustes-coccothraustes",
+   "numero": 238,
+   "nombre": "Picogordo común",
+   "cientifico": "Coccothraustes coccothraustes",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Fringílido de pico enorme capaz de romper huesos de cereza. Discreto en bosques.",
+   "imagen": "img/aves/coccothraustes-coccothraustes.webp"
+  },
+  {
+   "id": "pyrrhula-pyrrhula",
+   "numero": 239,
+   "nombre": "Camachuelo común",
+   "cientifico": "Pyrrhula pyrrhula",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene el pecho rojo rosado y el píleo negro. Vive en bosques y setos.",
+   "imagen": "img/aves/pyrrhula-pyrrhula.webp"
+  },
+  {
+   "id": "chloris-chloris",
+   "numero": 240,
+   "nombre": "Verderón común",
+   "cientifico": "Chloris chloris",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Fringílido verde con amarillo en alas y cola. Común en parques y campiña.",
+   "imagen": "img/aves/chloris-chloris.webp"
+  },
+  {
+   "id": "linaria-cannabina",
+   "numero": 241,
+   "nombre": "Pardillo común",
+   "cientifico": "Linaria cannabina",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral",
+    "Costa"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene el pecho y la frente rojos en primavera. Vive en brezales y campiña.",
+   "imagen": "img/aves/linaria-cannabina.webp"
+  },
+  {
+   "id": "loxia-curvirostra",
+   "numero": 242,
+   "nombre": "Piquituerto común",
+   "cientifico": "Loxia curvirostra",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Fringílido de pico cruzado para abrir piñas. El macho es rojo y la hembra, verdosa.",
+   "imagen": "img/aves/loxia-curvirostra.webp"
+  },
+  {
+   "id": "carduelis-carduelis",
+   "numero": 243,
+   "nombre": "Jilguero europeo",
+   "cientifico": "Carduelis carduelis",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Fringílido de cara roja y alas con una franja amarilla. Común en campiña y parques.",
+   "imagen": "img/aves/carduelis-carduelis.webp"
+  },
+  {
+   "id": "serinus-citrinella",
+   "numero": 244,
+   "nombre": "Verderón serrano",
+   "cientifico": "Serinus citrinella",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Fringílido verde amarillento de nuca gris. Vive en montaña cerca del límite del bosque.",
+   "imagen": "img/aves/serinus-citrinella.webp"
+  },
+  {
+   "id": "serinus-serinus",
+   "numero": 245,
+   "nombre": "Serín verdecillo",
+   "cientifico": "Serinus serinus",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral",
+    "Pueblos y ciudades"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeño fringílido amarillo listado de canto chisporroteante. Común en jardines.",
+   "imagen": "img/aves/serinus-serinus.webp"
+  },
+  {
+   "id": "spinus-spinus",
+   "numero": 246,
+   "nombre": "Lúgano",
+   "cientifico": "Spinus spinus",
+   "familia": "Fringillidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Bosque"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Pequeño fringílido verde amarillento; el macho tiene píleo negro. Invernante en alisedas.",
+   "imagen": "img/aves/spinus-spinus.webp"
+  },
+  {
+   "id": "emberiza-calandra",
+   "numero": 247,
+   "nombre": "Escribano triguero",
+   "cientifico": "Emberiza calandra",
+   "familia": "Emberizidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": false,
+   "descripcion": "Escribano pardo y robusto que canta como un manojo de llaves desde postes y cables.",
+   "imagen": "img/aves/emberiza-calandra.webp"
+  },
+  {
+   "id": "emberiza-citrinella",
+   "numero": 248,
+   "nombre": "Escribano cerillo",
+   "cientifico": "Emberiza citrinella",
+   "familia": "Emberizidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral",
+    "Alta montaña"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene la cabeza amarilla intensa. Vive en zonas abiertas de montaña.",
+   "imagen": "img/aves/emberiza-citrinella.webp"
+  },
+  {
+   "id": "emberiza-cirlus",
+   "numero": 249,
+   "nombre": "Escribano soteño",
+   "cientifico": "Emberiza cirlus",
+   "familia": "Emberizidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene la cara listada de amarillo y negro. Común en setos de campiña.",
+   "imagen": "img/aves/emberiza-cirlus.webp"
+  },
+  {
+   "id": "emberiza-cia",
+   "numero": 250,
+   "nombre": "Escribano montesino",
+   "cientifico": "Emberiza cia",
+   "familia": "Emberizidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Alta montaña",
+    "Campiña y matorral"
+   ],
+   "estatus": [
+    "Residente"
+   ],
+   "dimorfismo": true,
+   "descripcion": "Escribano de cabeza gris con listas negras. Vive en laderas rocosas.",
+   "imagen": "img/aves/emberiza-cia.webp"
+  },
+  {
+   "id": "emberiza-schoeniclus",
+   "numero": 251,
+   "nombre": "Escribano palustre",
+   "cientifico": "Emberiza schoeniclus",
+   "familia": "Emberizidae",
+   "grupo": "Gorriones, pinzones y escribanos",
+   "habitats": [
+    "Humedales y ríos"
+   ],
+   "estatus": [
+    "Invernante"
+   ],
+   "dimorfismo": true,
+   "descripcion": "El macho tiene la cabeza negra con bigote blanco en primavera. Invernante en carrizales.",
+   "imagen": "img/aves/emberiza-schoeniclus.webp"
+  }
+ ]
+}

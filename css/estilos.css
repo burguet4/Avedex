@@ -1,0 +1,589 @@
+/* Payarinos — pokédex de pájaros de Asturias
+   Paleta: morado, al estilo de la pokédex de Pokémon GO. */
+
+:root {
+  color-scheme: light;
+  --mar-1: #8E84BC;
+  --mar-2: #4A4275;
+  --cristal: rgba(255, 255, 255, .16);
+  --cristal-borde: rgba(255, 255, 255, .32);
+  --marino: #2E2852;
+  --azul-texto: #FFFFFF;
+  --tesela-1: rgba(255, 255, 255, .20);
+  --tesela-2b: rgba(255, 255, 255, .08);
+  --tesela: #F7F6FB;
+  --tesela-2: #ECEAF5;
+  --borde: #D9D5EA;
+  --tinta: #26223F;
+  --tinta-suave: #6A6688;
+  --prado: #6A5AAE;
+  --prado-oscuro: #52458C;
+  --ria: #6A5AAE;
+  --retama: #F2B233;
+  --peligro: #B2432F;
+  --blanco: #FFFFFF;
+  --sombra: 0 6px 18px rgba(23, 63, 59, .14);
+  --radio-grande: 22px;
+  --radio: 16px;
+  --fuente-titulo: "Fredoka", "Nunito", system-ui, sans-serif;
+  --fuente: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --seguro-abajo: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--fuente);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--tinta);
+  background: linear-gradient(180deg, var(--mar-1) 0%, var(--mar-2) 100%) no-repeat;
+  background-color: var(--mar-2);
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+}
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--ria); }
+:focus-visible { outline: 3px solid var(--ria); outline-offset: 2px; }
+svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.vista {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: max(12px, env(safe-area-inset-top)) 14px calc(110px + var(--seguro-abajo));
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  position: sticky;
+  top: 8px;
+  z-index: 5;
+  padding: 14px 16px 12px;
+  border-radius: var(--radio-grande);
+  background: rgba(255, 255, 255, .14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--cristal-borde);
+  box-shadow: 0 6px 20px rgba(25, 20, 50, .3);
+  color: var(--blanco);
+}
+.cabecera-fila { display: flex; align-items: center; gap: 12px; }
+.region {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: .01em;
+}
+.contador {
+  margin: 0 auto 0 0;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background: var(--marino);
+  border: 0;
+  color: var(--blanco);
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 12px 0 0;
+  text-align: center;
+}
+.estadisticas div + div { border-left: 1px solid var(--cristal-borde); }
+.estadisticas dd {
+  margin: 0;
+  order: -1;
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.estadisticas div { display: flex; flex-direction: column; }
+.estadisticas dt { font-size: .72rem; color: var(--blanco); opacity: .8; line-height: 1.2; }
+.estadisticas div + div { border-left-color: rgba(255, 255, 255, .28) !important; }
+
+.aviso-filtro { margin: 14px 4px 0; font-size: .85rem; color: var(--azul-texto); }
+
+/* ---------- Cuadrícula ---------- */
+
+.cuadricula {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  gap: 10px;
+}
+@media (min-width: 400px) { .cuadricula { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 600px) { .cuadricula { grid-template-columns: repeat(5, 1fr); gap: 12px; } }
+
+.tesela {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 6px 6px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--tesela-1) 0%, var(--tesela-2b) 100%);
+  border: 1px solid var(--cristal-borde);
+  text-decoration: none;
+  color: var(--blanco);
+  transition: transform .12s ease;
+}
+.tesela[href]:active { transform: scale(.96); }
+.tesela:not([href]) { cursor: default; }
+.tesela-img { position: relative; width: 100%; aspect-ratio: 1; }
+.tesela-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.tesela-num {
+  font-family: var(--fuente-titulo);
+  font-weight: 500;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .75);
+  font-variant-numeric: tabular-nums;
+}
+/* Descubierto: sin recuadro, solo un brillo circular difuminado detrás del pájaro */
+.tesela.descubierta {
+  border-color: transparent;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, .2) 34%, rgba(255, 255, 255, 0) 62%);
+}
+.tesela.descubierta .tesela-num { color: var(--azul-texto); font-weight: 600; }
+.tesela-sexos { position: absolute; top: 4px; right: 7px; display: flex; gap: 2px; font-family: system-ui, sans-serif; font-size: .85rem; }
+.tesela-sexos i { font-style: normal; color: rgba(255, 255, 255, .3); font-weight: 700; }
+.tesela-sexos i.si { color: var(--retama); }
+
+/* Sombra de los no descubiertos: la forma del pájaro en gris oscuro */
+.tesela:not(.descubierta) img { filter: brightness(0); opacity: .45; }
+img.generica { opacity: .5; }
+
+.vacio { margin: 32px 8px; text-align: center; color: var(--azul-texto); }
+
+/* ---------- Barra inferior ---------- */
+
+.barra {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + var(--seguro-abajo));
+  transform: translateX(-50%);
+  width: min(720px, 100%);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 6;
+  pointer-events: none;
+}
+.barra > * { pointer-events: auto; }
+.barra { justify-content: space-between; }
+.btn-descubrir {
+  flex: none;
+  width: 66px; height: 66px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 4px solid var(--blanco);
+  background: var(--retama);
+  color: var(--marino);
+  box-shadow: 0 6px 18px rgba(25, 20, 50, .45);
+  cursor: pointer;
+}
+.btn-descubrir svg { width: 30px; height: 30px; stroke-width: 3; }
+.btn-descubrir:active { transform: scale(.94); }
+.btn-redondo {
+  position: relative;
+  flex: none;
+  width: 54px; height: 54px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, .6);
+  background-clip: padding-box;
+  background: var(--blanco);
+  color: var(--prado);
+  box-shadow: 0 4px 14px rgba(25, 20, 50, .35);
+  cursor: pointer;
+}
+.btn-redondo.activo { background: var(--marino); color: var(--blanco); }
+.marca { position: absolute; top: 9px; right: 10px; width: 10px; height: 10px; border-radius: 50%; background: var(--retama); border: 2px solid var(--blanco); }
+.caja-busqueda { flex: 1; }
+.caja-busqueda input {
+  width: 100%;
+  height: 54px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--blanco);
+  box-shadow: 0 4px 14px rgba(25, 20, 50, .35);
+  font-size: 1rem;
+}
+
+.btn-icono {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, .85);
+  color: var(--tinta);
+  cursor: pointer;
+}
+.cabecera .btn-icono { background: var(--cristal); color: var(--blanco); }
+
+/* ---------- Ficha ---------- */
+
+.ficha-barra { display: flex; align-items: center; gap: 10px; }
+.ficha-numero { font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.1rem; color: var(--azul-texto); }
+.ficha-navegar { margin-left: auto; display: flex; gap: 8px; }
+
+.ficha-imagen {
+  margin: 8px auto 0;
+  width: min(78vw, 340px);
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.6) 0%, rgba(255,255,255,.22) 40%, rgba(255,255,255,0) 68%);
+}
+.ficha-imagen img { position: absolute; inset: 4%; width: 92%; height: 92%; object-fit: contain; }
+.ficha-imagen.revelar img { animation: revelar 900ms ease-out; }
+@keyframes revelar {
+  0% { filter: brightness(0); opacity: .26; transform: scale(.92); }
+  55% { filter: brightness(1.6); opacity: 1; transform: scale(1.04); }
+  100% { filter: none; transform: scale(1); }
+}
+
+.ficha-cuerpo {
+  margin-top: 8px;
+  padding: 22px 18px 18px;
+  border-radius: var(--radio-grande);
+  background: var(--blanco);
+  box-shadow: 0 6px 20px rgba(25, 20, 50, .25);
+}
+.ficha-nombre { margin: 0; font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.75rem; line-height: 1.15; }
+.ficha-cientifico { margin: 2px 0 0; font-style: italic; color: var(--tinta-suave); }
+.ficha-estado { margin: 10px 0 0; font-weight: 700; color: var(--prado-oscuro); }
+#vista-ficha:not(.descubierta) .ficha-estado { color: var(--tinta-suave); }
+.etiquetas { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.etiquetas li { padding: 3px 11px; border-radius: 999px; background: var(--tesela-2); font-size: .85rem; }
+.etiquetas .etiqueta-grupo { background: var(--tinta); color: var(--blanco); }
+.ficha-descripcion { margin: 16px 0 0; max-width: 62ch; }
+
+.bloque { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--tesela-2); }
+.bloque h3 { margin: 0 0 12px; font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.15rem; }
+.bloque-titulo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.bloque-titulo h3 { margin: 0; }
+
+.sexos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sexos > .nota { grid-column: 1 / -1; margin: 0; }
+.sexo {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  border-radius: var(--radio);
+  border: 2px dashed var(--borde);
+  color: var(--tinta-suave);
+  line-height: 1.3;
+}
+.sexo strong { color: var(--tinta); }
+.sexo-simbolo { font-family: system-ui, sans-serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+.sexo.visto { border-style: solid; border-color: var(--prado); background: #EFEDF8; color: var(--prado-oscuro); }
+.sexo.visto .sexo-simbolo { color: var(--prado); }
+
+.mapa { height: 220px; border-radius: var(--radio); overflow: hidden; margin-bottom: 12px; border: 1px solid var(--borde); z-index: 0; }
+.mapa-form { height: 260px; margin: 10px 0 8px; cursor: crosshair; }
+.leaflet-container { font-family: var(--fuente); background: #F2F1F6; }
+.chincheta { background: none; border: 0; }
+.chincheta svg { overflow: visible; filter: drop-shadow(0 2px 3px rgba(25, 20, 50, .45)); }
+.chincheta path { fill: var(--prado); stroke: var(--blanco); stroke-width: 2.5; }
+.chincheta circle { fill: var(--blanco); }
+.leaflet-marker-icon.chincheta { animation: caer .35s ease-out; }
+@keyframes caer { from { transform: translateY(-14px); opacity: 0; } }
+.leaflet-popup-content { font-size: .9rem; }
+
+.campo-lugar { position: relative; }
+.campo-lugar > label > span { display: block; margin-bottom: 8px; font-weight: 700; font-size: .92rem; }
+.sugerencias {
+  position: absolute;
+  left: 0; right: 0;
+  top: 74px;
+  z-index: 1000;
+  list-style: none;
+  margin: 0; padding: 4px;
+  border-radius: 12px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  box-shadow: 0 10px 24px rgba(25, 20, 50, .2);
+}
+.sugerencia {
+  width: 100%;
+  display: block;
+  padding: 9px 10px;
+  border: 0; border-radius: 8px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.sugerencia:hover, .sugerencia:focus-visible { background: var(--tesela-2); }
+.sugerencia small { display: block; color: var(--tinta-suave); }
+
+.form-especie { display: flex; align-items: center; gap: 14px; margin-top: 10px; padding: 10px; border-radius: var(--radio); background: var(--tesela-2); }
+.form-especie img { width: 76px; height: 76px; object-fit: contain; filter: brightness(0); opacity: .35; }
+.form-especie-nombre { margin: 0 !important; font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.25rem; }
+.form-especie-cientifico { margin: 0 !important; font-style: italic; color: var(--tinta-suave); }
+
+.avistamientos { list-style: none; margin: 0; padding: 0; }
+.avistamiento {
+  display: flex; justify-content: space-between; gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--tesela-2);
+}
+.avistamiento:last-child { border-bottom: 0; }
+.avistamiento p { margin: 0; }
+.av-fecha { font-weight: 700; }
+.av-sexo { margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--tesela-2); font-size: .8rem; font-weight: 600; }
+.av-lugar { color: var(--tinta-suave); }
+.av-notas { font-size: .92rem; margin-top: 2px !important; }
+.av-acciones { display: flex; flex-direction: column; align-items: flex-end; }
+.sin-avistamientos { margin: 0; color: var(--tinta-suave); }
+.credito { margin: 24px 0 0; font-size: .75rem; color: var(--tinta-suave); }
+.nota { margin: 6px 0 0; font-size: .88rem; color: var(--tinta-suave); }
+
+/* ---------- Botones ---------- */
+
+.btn-primario, .btn-secundario, .btn-texto { cursor: pointer; border: 0; font-weight: 700; }
+.btn-primario {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--prado);
+  color: var(--blanco);
+}
+.btn-primario:hover { background: var(--prado-oscuro); }
+.btn-secundario { padding: 8px 14px; border-radius: 999px; background: var(--tesela-2); color: var(--tinta); }
+.btn-secundario:disabled { opacity: .6; }
+.btn-texto { padding: 4px 6px; background: none; color: var(--ria); }
+.btn-texto.peligro { color: var(--peligro); }
+.btn-ancho { width: 100%; padding: 14px; margin-top: 18px; font-size: 1.02rem; }
+.fila-botones { display: flex; gap: 8px; align-items: center; }
+
+/* ---------- Hojas (paneles que suben desde abajo) ---------- */
+
+.hoja {
+  width: min(560px, 100%);
+  max-width: 100%;
+  max-height: 92dvh;
+  margin: auto auto 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-grande) var(--radio-grande) 0 0;
+  background: var(--blanco);
+  color: var(--tinta);
+  box-shadow: 0 -8px 30px rgba(23, 63, 59, .2);
+}
+@media (min-width: 600px) { .hoja { margin: auto; border-radius: var(--radio-grande); } }
+.hoja::backdrop { background: rgba(25, 20, 50, .55); }
+.hoja[open] { animation: subir .22s ease-out; }
+@keyframes subir { from { transform: translateY(40px); opacity: 0; } }
+.hoja-contenido { padding: 20px 18px calc(20px + var(--seguro-abajo)); }
+.hoja h2 { margin: 0; font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.3rem; }
+.hoja p { margin: 12px 0 0; }
+.hoja-titulo { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+
+fieldset { margin: 16px 0 0; padding: 0; border: 0; }
+legend, .campo > span { display: block; margin-bottom: 8px; font-weight: 700; font-size: .92rem; }
+.campo { display: block; margin-top: 16px; }
+.campo small { font-weight: 400; color: var(--tinta-suave); }
+.campo input, .campo select, .campo textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--borde);
+  background: var(--tesela);
+  font-size: 1rem;
+}
+.campo textarea { resize: vertical; }
+
+.opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.opciones label { position: relative; cursor: pointer; }
+.opciones input { position: absolute; opacity: 0; pointer-events: none; }
+.opciones span {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  background: var(--tesela);
+  font-size: .92rem;
+}
+.opciones input:checked + span { background: var(--tinta); border-color: var(--tinta); color: var(--blanco); }
+.opciones input:focus-visible + span { outline: 3px solid var(--ria); outline-offset: 2px; }
+
+/* ---------- Descubrir ---------- */
+
+.entrada-grande {
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--borde);
+  background: var(--tesela);
+  font-size: 1.05rem;
+}
+.entrada-grande:focus { border-color: var(--prado); outline: none; }
+.resultados { list-style: none; margin: 10px 0 0; padding: 0; max-height: 52dvh; overflow-y: auto; }
+.resultado {
+  width: 100%;
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 6px;
+  border: 0;
+  border-bottom: 1px solid var(--tesela-2);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.resultado:hover { background: var(--tesela); }
+.resultado img { flex: none; width: 48px; height: 48px; object-fit: contain; }
+.resultado:not(.descubierta) img { filter: brightness(0); opacity: .3; }
+.resultado-texto { flex: 1; line-height: 1.25; }
+.resultado-texto i { display: block; font-size: .85rem; color: var(--tinta-suave); }
+.resultado-marca { font-size: .78rem; font-weight: 700; color: var(--prado-oscuro); background: #EFEDF8; padding: 2px 8px; border-radius: 999px; }
+.descubrir-figura {
+  margin: 8px auto 0;
+  width: min(60vw, 220px);
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tesela-2) 0%, rgba(227,243,240,0) 70%);
+}
+.descubrir-figura { position: relative; }
+.descubrir-figura img { position: absolute; inset: 6%; width: 88%; height: 88%; object-fit: contain; filter: brightness(0); opacity: .3; }
+.descubrir-figura.ya img { filter: none; opacity: 1; }
+.descubrir-nombre { margin: 6px 0 0 !important; text-align: center; font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.4rem; }
+.descubrir-cientifico { margin: 0 !important; text-align: center; font-style: italic; color: var(--tinta-suave); }
+.btn-centrado { display: block; margin: 10px auto 0; }
+
+/* ---------- Aviso flotante ---------- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(96px + var(--seguro-abajo));
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--marino);
+  color: var(--blanco);
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(25, 20, 50, .4);
+  max-width: calc(100% - 32px);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+
+/* =====================================================================
+   Toques de vida: pájaros que cruzan el fondo, plumas al descubrir
+   y barra de progreso. Colores sobrios: morado, blanco y el dorado del +.
+   ===================================================================== */
+
+:root { --mar-1: #8A72D0; --mar-2: #463A8A; }
+
+/* ---------- Cielo con pájaros de fondo ---------- */
+.cielo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.vista { position: relative; z-index: 1; }
+.pajaro-fondo {
+  position: absolute;
+  top: var(--y);
+  left: 0;
+  width: calc(var(--tam) * 1.8);
+  height: calc(var(--tam) * 1.2);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: .5;
+  animation: cruzar-derecha var(--dur) linear var(--retraso) both;
+}
+.pajaro-fondo.a-la-izquierda { animation-name: cruzar-izquierda; }
+.pajaro-fondo.a-la-izquierda svg { transform: scaleX(-1); }
+.pajaro-fondo svg { width: 100%; height: 100%; overflow: visible; }
+.pajaro-fondo .ala {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 30px 13px;
+  animation: aletear var(--aleteo) ease-in-out infinite alternate;
+}
+.pajaro-fondo.asustado { animation-duration: 2.2s; opacity: .85; }
+.pajaro-fondo.asustado .ala { animation-duration: .12s; }
+@keyframes cruzar-derecha {
+  from { transform: translate(-80px, 0); }
+  50% { transform: translate(50vw, -3vh); }
+  to { transform: translate(calc(100vw + 80px), 1vh); }
+}
+@keyframes cruzar-izquierda {
+  from { transform: translate(calc(100vw + 80px), 0); }
+  50% { transform: translate(50vw, 3vh); }
+  to { transform: translate(-80px, -2vh); }
+}
+@keyframes aletear { from { transform: scaleY(1); } to { transform: scaleY(.35) translateY(3px); } }
+
+/* Plumas al descubrir una especie */
+.pluma {
+  position: fixed;
+  z-index: 50;
+  width: 12px;
+  height: 32px;
+  margin: -16px 0 0 -6px;
+  pointer-events: none;
+  animation: pluma var(--dur) cubic-bezier(.2, .7, .3, 1) forwards;
+}
+.pluma svg { width: 100%; height: 100%; overflow: visible; }
+.pluma path { fill: var(--c); }
+.pluma .raquis { fill: none; stroke: rgba(0, 0, 0, .15); stroke-width: 1; }
+@keyframes pluma {
+  0% { transform: translate(0, 0) rotate(0) scale(.4); opacity: 0; }
+  15% { opacity: 1; }
+  45% { transform: translate(var(--dx), var(--dy)) rotate(calc(var(--giro) * .5)) scale(1); }
+  100% { transform: translate(calc(var(--dx) * 1.15), calc(var(--dy) + var(--caida))) rotate(var(--giro)) scale(.9); opacity: 0; }
+}
+
+/* Barra de progreso de la pokédex */
+.progreso {
+  margin-top: 12px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .2);
+  overflow: hidden;
+}
+.progreso span {
+  display: block;
+  height: 100%;
+  min-width: 6px;
+  border-radius: inherit;
+  background: var(--blanco);
+  transition: width .6s ease;
+}
+
+/* Los pájaros del fondo se pueden tocar en los huecos entre casillas y en los márgenes */
+#vista-pokedex { pointer-events: none; }
+#vista-pokedex > *, .cuadricula > li { pointer-events: auto; }
+#vista-pokedex .cuadricula { pointer-events: none; }
+
+/* Morado más rosado y vivo, y halo más marcado alrededor de los pájaros descubiertos */
+:root { --mar-1: #B266D6; --mar-2: #5B2A93; }
+.tesela.descubierta {
+  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .9) 0%, rgba(255, 228, 250, .75) 30%, rgba(255, 210, 245, .35) 46%, rgba(255, 255, 255, 0) 58%);
+}
+.ficha-imagen {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .95) 0%, rgba(255, 228, 250, .75) 34%, rgba(255, 210, 245, .3) 52%, rgba(255, 255, 255, 0) 66%);
+}

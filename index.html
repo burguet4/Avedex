@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Payarinos</title>
+  <meta name="description" content="Pokédex de los pájaros de Asturias: apunta los que ves y completa tu colección.">
+  <meta name="theme-color" content="#B266D6">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/iconos/icono-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/iconos/icono-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Payarinos">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <div id="cielo" class="cielo"></div>
+
+  <!-- Vista: pokédex -->
+  <main id="vista-pokedex" class="vista">
+    <header class="cabecera">
+      <div class="cabecera-fila">
+        <h1 class="region">Asturias</h1>
+        <p class="contador" aria-live="polite"><span id="num-vistos">0</span> / <span id="num-total">0</span></p>
+        <button id="btn-instalar" class="btn-icono" hidden aria-label="Instalar la app">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14" /></svg>
+        </button>
+      </div>
+      <dl class="estadisticas">
+        <div><dt>Descubiertos</dt><dd id="est-descubiertos">0%</dd></div>
+        <div><dt>Ambos sexos</dt><dd id="est-sexos">0</dd></div>
+        <div><dt>Avistamientos</dt><dd id="est-avistamientos">0</dd></div>
+        <div><dt>Este año</dt><dd id="est-anio">0</dd></div>
+      </dl>
+      <div class="progreso" aria-hidden="true"><span id="barra-progreso"></span></div>
+    </header>
+
+    <p id="aviso-filtro" class="aviso-filtro" hidden></p>
+    <ol id="cuadricula" class="cuadricula" aria-label="Pájaros de Asturias"></ol>
+    <p id="vacio" class="vacio" hidden>Ningún pájaro coincide con la búsqueda. Prueba con otro nombre o quita algún filtro.</p>
+
+    <nav class="barra" aria-label="Herramientas">
+      <button id="btn-buscar" class="btn-redondo" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      </button>
+      <div id="caja-busqueda" class="caja-busqueda" hidden>
+        <input id="busqueda" type="search" placeholder="Nombre o número" autocomplete="off" aria-label="Buscar pájaro">
+      </div>
+      <button id="btn-descubrir" class="btn-descubrir" aria-label="Apuntar un pájaro que has visto">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <button id="btn-filtros" class="btn-redondo" aria-label="Filtros y orden">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+        <span id="marca-filtros" class="marca" hidden></span>
+      </button>
+    </nav>
+  </main>
+
+  <!-- Vista: ficha de especie -->
+  <main id="vista-ficha" class="vista" hidden>
+    <div class="ficha-barra">
+      <a href="#/" class="btn-icono" aria-label="Volver a la pokédex">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      </a>
+      <span id="ficha-numero" class="ficha-numero"></span>
+      <div class="ficha-navegar">
+        <a id="ficha-anterior" class="btn-icono" aria-label="Pájaro anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+        <a id="ficha-siguiente" class="btn-icono" aria-label="Pájaro siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <figure class="ficha-imagen">
+      <img id="ficha-img" alt="">
+    </figure>
+
+    <section class="ficha-cuerpo">
+      <h2 id="ficha-nombre" class="ficha-nombre"></h2>
+      <p id="ficha-cientifico" class="ficha-cientifico"></p>
+      <p id="ficha-estado" class="ficha-estado"></p>
+      <ul id="ficha-etiquetas" class="etiquetas"></ul>
+      <p id="ficha-descripcion" class="ficha-descripcion"></p>
+
+      <section class="bloque">
+        <h3>Sexos vistos</h3>
+        <div id="ficha-sexos" class="sexos"></div>
+      </section>
+
+      <section class="bloque">
+        <div class="bloque-titulo">
+          <h3>Mis avistamientos</h3>
+          <button id="btn-nuevo" class="btn-primario">Apuntar avistamiento</button>
+        </div>
+        <div id="ficha-mapa" class="mapa" hidden></div>
+        <ol id="ficha-avistamientos" class="avistamientos"></ol>
+        
+      </section>
+
+      <p id="ficha-credito" class="credito"></p>
+    </section>
+  </main>
+
+  <!-- Panel de filtros -->
+  <dialog id="panel-filtros" class="hoja">
+    <form method="dialog" class="hoja-contenido">
+      <div class="hoja-titulo">
+        <h2>Filtros y orden</h2>
+        <button type="button" id="btn-limpiar" class="btn-texto">Quitar filtros</button>
+      </div>
+
+      <fieldset>
+        <legend>Mostrar</legend>
+        <div class="opciones" data-filtro="estado">
+          <label><input type="radio" name="estado" value="todos" checked><span>Todos</span></label>
+          <label><input type="radio" name="estado" value="descubiertos"><span>Descubiertos</span></label>
+          <label><input type="radio" name="estado" value="pendientes"><span>Por descubrir</span></label>
+          <label><input type="radio" name="estado" value="falta-sexo"><span>Falta un sexo</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Hábitat</legend>
+        <div class="opciones" id="opciones-habitat"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Cuándo se ve</legend>
+        <div class="opciones" id="opciones-estatus"></div>
+      </fieldset>
+
+      <label class="campo">
+        <span>Grupo</span>
+        <select id="filtro-grupo"><option value="">Todos los grupos</option></select>
+      </label>
+
+      <fieldset>
+        <legend>Ordenar por</legend>
+        <div class="opciones">
+          <label><input type="radio" name="orden" value="numero" checked><span>Número</span></label>
+          <label><input type="radio" name="orden" value="nombre"><span>Nombre</span></label>
+          <label><input type="radio" name="orden" value="reciente"><span>Visto hace menos</span></label>
+        </div>
+      </fieldset>
+
+      <button class="btn-primario btn-ancho" value="cerrar">Ver resultados</button>
+    </form>
+  </dialog>
+
+  <!-- Descubrir un pájaro -->
+  <dialog id="panel-descubrir" class="hoja">
+    <form method="dialog" class="hoja-contenido">
+      <div class="hoja-titulo">
+        <h2>¿Qué pájaro has visto?</h2>
+        <button type="button" class="btn-texto" data-cerrar>Cancelar</button>
+      </div>
+
+      <div id="paso-buscar">
+        <input id="descubrir-busqueda" class="entrada-grande" type="search" placeholder="Escribe su nombre" autocomplete="off" aria-label="Nombre del pájaro">
+        <ul id="descubrir-resultados" class="resultados"></ul>
+        <p id="descubrir-ayuda" class="nota">Escribe al menos 2 letras del nombre común o del científico.</p>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Formulario de avistamiento -->
+  <dialog id="panel-avistamiento" class="hoja">
+    <form id="form-avistamiento" method="dialog" class="hoja-contenido">
+      <div class="hoja-titulo">
+        <h2 id="form-titulo">Nuevo avistamiento</h2>
+        <button type="button" class="btn-texto" data-cerrar>Cancelar</button>
+      </div>
+
+      <div id="form-especie" class="form-especie" hidden>
+        <img id="form-especie-img" alt="">
+        <div>
+          <p id="form-especie-nombre" class="form-especie-nombre"></p>
+          <p id="form-especie-cientifico" class="form-especie-cientifico"></p>
+        </div>
+      </div>
+
+      <label class="campo">
+        <span>Fecha</span>
+        <input type="date" name="fecha" required>
+      </label>
+
+      <fieldset>
+        <legend>Sexo</legend>
+        <div class="opciones" id="opciones-sexo">
+          <label><input type="radio" name="sexo" value="macho"><span>♂ Macho</span></label>
+          <label><input type="radio" name="sexo" value="hembra"><span>♀ Hembra</span></label>
+          <label><input type="radio" name="sexo" value="desconocido" checked><span>No lo sé</span></label>
+        </div>
+        <p id="nota-sexo" class="nota" hidden>En esta especie machos y hembras se ven iguales.</p>
+      </fieldset>
+
+      <div class="campo campo-lugar">
+        <label for="campo-lugar"><span>Lugar</span></label>
+        <input id="campo-lugar" type="text" name="lugar" placeholder="Escribe la zona o toca el mapa" maxlength="100" autocomplete="off">
+        <ul id="lugar-sugerencias" class="sugerencias" hidden></ul>
+        <div id="form-mapa" class="mapa mapa-form"></div>
+        <div class="fila-botones">
+          <button type="button" id="btn-ubicacion" class="btn-secundario">Usar mi ubicación</button>
+          <button type="button" id="btn-quitar-punto" class="btn-texto" hidden>Quitar punto</button>
+        </div>
+        <p id="texto-punto" class="nota"></p>
+      </div>
+
+      <label class="campo">
+        <span>Notas</span>
+        <textarea name="notas" rows="2" maxlength="300" placeholder="Cuántos eran, qué hacía…"></textarea>
+      </label>
+
+      <button id="btn-guardar-avistamiento" class="btn-primario btn-ancho" value="guardar">Guardar avistamiento</button>
+    </form>
+  </dialog>
+
+  <dialog id="panel-ios" class="hoja">
+    <form method="dialog" class="hoja-contenido">
+      <h2>Instala Payarinos en tu iPhone</h2>
+      <p>Toca el botón <strong>Compartir</strong> de Safari y elige <strong>Añadir a pantalla de inicio</strong>. Se abrirá como una app, sin barra del navegador.</p>
+      <button class="btn-primario btn-ancho">Entendido</button>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

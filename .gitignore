@@ -1,0 +1,5 @@
+# Fotos originales sin recortar (se regeneran con herramientas/descargar_imagenes.py)
+herramientas/_originales/
+__pycache__/
+.DS_Store
+Thumbs.db

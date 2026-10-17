@@ -1,0 +1,17 @@
+{
+  "name": "Payarinos — pokédex de pájaros de Asturias",
+  "short_name": "Payarinos",
+  "description": "Apunta los pájaros que ves en Asturias y completa tu pokédex.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#5B2A93",
+  "theme_color": "#B266D6",
+  "icons": [
+    { "src": "img/iconos/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/iconos/icono-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/iconos/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
